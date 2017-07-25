@@ -28,5 +28,34 @@ public class JavaTests {
         int binVal = 0b11010; // 2^1 + 2^3 + 2^4 = 2 + 8 + 16 = 26
 
         System.out.println(x.getClass());
+
+        double z = 10.5;
+
+        int y = (int) z;
+
+        System.out.println(y);
+
+
+        String geaniString = "Geani String test";
+
+        System.out.println("\n" + geaniString);
+
+
+        long creditCardNumber = 1234_5678_9012_3456L;
+
+        long socialSecurityNumber = 999_99_9999L;
+
+        float pi = 3.14_15F;
+
+        long hexBytes = 0xFF_EC_DE_5E;
+
+        long hexWords = 0xCAFE_BABE;
+
+        long maxLong = 0x7fff_ffff_ffff_ffffL;
+
+        byte nybbles = 0b0010_0101;
+
+        long bytes = 0b11010010_01101001_10010100_10010010;
+
     }
 }
