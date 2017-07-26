@@ -215,7 +215,205 @@ public class JavaTests {
 
         System.out.println(matrix[1][2]);
 
+        System.out.println("\n");
+
+        int xi = 0;
+
+        if (xi != 0) {
+            System.out.println("x is different from zero");
+        } else {
+            System.out.println("x is equal to zero");
+        }
+
+        System.out.println("\n");
+
+        int num = 15;
+        if (num < 10) {
+            System.out.println("number < 10");
+        } else if (num > 10) {
+            System.out.println("num > 10");
+        } else if (num == 10) {
+            System.out.println("num = 10");
+        }
+
+        System.out.println("\n");
+
+        boolean isHappy = true;
+
+        String mood = (isHappy == true) ? "I'm Happy!" : "I'm Sad!";
+        System.out.println(mood);
+
+        System.out.println("\n");
+
+        int x = 36;
+
+        if ((x > 1 && x < 25 && x != 10) || (x == 35))
+
+            System.out.println("Condition is fulfilled");
+
+        else
+
+            System.out.println("Condition is not fulfilled");
 
 
+        System.out.println("\n");
+
+        int xs = 5;
+
+        switch (xs)
+
+        {
+
+            case 1:
+
+                System.out.println("x = 1");
+
+                break;
+
+            case 2:
+
+                System.out.println("x = 2");
+
+                break;
+
+            case 3:
+
+                System.out.println("x = 3");
+
+                break;
+
+            default:
+
+                System.out.println("x!=1, x!=2, x!=3");
+
+        }
+
+        System.out.println("\n");
+
+        String carMake = "Ford";
+
+        int doors = 4;
+        switch (carMake) {
+
+            case "Ford":
+
+                switch (doors) {
+
+                    case 3:
+
+                        System.out.println("You drive a Ford with three doors.");
+
+                        break;
+
+                    case 4:
+
+                        System.out.println("You drive a Ford with four doors.");
+
+                        break;
+
+                    case 5:
+
+                        System.out.println("You drive a Ford with five doors.");
+
+                        break;
+
+                }
+
+                break;
+
+            default:
+
+                System.out.println("We're sorry. You do not drive a Ford car.");
+
+                break;
+
+        }
+
+
+        System.out.println("\n");
+
+        int counter;
+        for (counter = 0; counter <= 5; counter++) {
+
+            System.out.println(counter);
+
+        }
+
+        System.out.println(counter);
+
+        System.out.println("\n");
+
+
+        String[] colors = {"red", "green", "blue", "yellow", "white"};
+
+        for (int i = 0; i < colors.length; i++)
+
+        {
+
+            System.out.println("Color of element " + i + " is " + colors[i] + ".");
+        }
+
+
+        System.out.println("\n");
+
+        int i = 0;
+
+        for (i = 0; i < 33; i++)
+
+            System.out.println(i);
+
+        System.out.println("\n");
+
+
+        int[] numbers = {3, 5, 9, 45, 6546, 8756123, 65};
+
+        System.out.println("Numbers in this array are: ");
+
+        for (int number : numbers) {
+
+            System.out.println(number);
+        }
+
+        System.out.println("\n");
+
+        for (int yy = 0; yy < 10; yy++)
+
+        {
+
+            System.out.print("\n" + yy + ":");
+
+            for (int u = 0; u < 10; u++)
+
+            {
+
+                System.out.print(u);
+
+                if (u == 5)
+
+                    break;
+
+            }
+
+        }
+
+        System.out.println("\n");
+
+        int number = 5;
+
+        do {
+
+            System.out.println(number);
+
+            number --;
+
+        }
+
+        while (number >= 2);
+
+        //end
     }
+
+
 }
+
+
