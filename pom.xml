@@ -92,6 +92,11 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>xalan</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
     <profiles>

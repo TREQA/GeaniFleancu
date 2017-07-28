@@ -448,6 +448,23 @@ public class JavaTests {
 
         getPerimeter(13, 13, 13);
 
+        System.out.println("\n");
+
+        //Person person = new Person("John", "Davidson");
+        Student student = new Student("John", "Smith", "10/2014");
+        Professor professor = new Professor("Edward", "Owen", "Java Programming");
+
+        student.show();
+        professor.show();
+
+
+        System.out.println("\n");
+
+        double res1 = Calc2.add(4, 6);
+        double res2 = Calc2.add(4, 6, 8);
+        System.out.println(res1);
+        System.out.println(res2);
+
         //end
     }
 
