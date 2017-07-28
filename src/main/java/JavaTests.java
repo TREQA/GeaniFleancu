@@ -1,3 +1,5 @@
+import Ex.*;
+
 import java.util.Arrays;
 
 
@@ -404,16 +406,73 @@ public class JavaTests {
 
             System.out.println(number);
 
-            number --;
+            number--;
 
         }
 
         while (number >= 2);
 
+        System.out.println("\n");
+
+        Car car1 = new Car();
+        Car car2 = new Car("Ford");
+
+        Car car3 = new Car("Ford", "Fiesta");
+        Car car4 = new Car("Ford", "Fiesta", 3);
+
+        System.out.println("\n");
+
+        car4.printDetails();
+
+        System.out.println("\n");
+
+        Conversions.f2c(117.3);
+
+        int xm = 5;
+        System.out.println("This is initial value: " + xm);
+        passMethod(xm);
+        System.out.println("This is the value after the completion of the method: " + xm);
+
+        System.out.println("\n");
+
+        int xrt = 5;
+
+
+        ReferenceType rt = new ReferenceType();
+
+        System.out.println("This is initial value: " + rt.xrt);
+        passMethodrt(rt);
+        System.out.println("This is the value after the completion of the method: " + rt.xrt);
+
+        System.out.println("\n");
+
+        getPerimeter(13, 13, 13);
+
         //end
     }
 
+    public static void passMethod(int xm) {
+        xm = 10;
+        System.out.println("This is the value from method: " + xm);
+    }
 
+    public static void passMethodrt(ReferenceType rt) {
+        rt.xrt = 10;
+        System.out.println("This is the value from method: " + rt.xrt);
+    }
+
+    public static void getPerimeter(int... edges) {
+        int perimeter = 0;
+        if (edges.length < 3) {
+            System.out.println("Polygon must have more than two sides.");
+        } else {
+            for (int i = 0; i < edges.length; i++) {
+                perimeter += edges[i];
+            }
+            System.out.println(perimeter);
+        }
+
+    }
 }
 
 
