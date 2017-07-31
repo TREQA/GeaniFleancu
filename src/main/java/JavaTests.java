@@ -1,6 +1,10 @@
 import Ex.*;
 
-import java.util.Arrays;
+import java.io.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 
 public class JavaTests {
@@ -21,8 +25,18 @@ public class JavaTests {
 
     private static final double PI = 3.14;
 
+    public enum DaysOfWeek {
+        MONDAY(1), TUESDAY(2), WEDNESDAY(3), THURSDAY(4), FRIDAY(5), SATURDAY(6), SUNDAY(7), UNSPECIFIED(8);
 
-    public static void main(String[] args) {
+        public int position;
+
+        DaysOfWeek(int p) {
+            position = p;
+        }
+    }
+
+
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println("Geani test");
        /* System.out.println("Geani test2");
@@ -465,7 +479,292 @@ public class JavaTests {
         System.out.println(res1);
         System.out.println(res2);
 
-        //end
+
+        System.out.println("\n");
+
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("My ");
+        sb.append("string");
+        System.out.println(sb);
+
+        System.out.println("\n");
+
+        String word = "Hello";
+        char[] charArray = word.toCharArray();
+
+        for (int ii = 0; ii < charArray.length; ii++) {
+            System.out.println(charArray[ii]);
+        }
+
+        System.out.println("\n");
+
+
+        String str = "This is a sentence. This is a question, right? Yes! It is.";
+        System.out.println("Return Value :");
+        String[] wordArray = str.split("[ .,?!]");
+        for (int vi = 0; vi < wordArray.length; vi++) {
+            System.out.println(wordArray[vi]);
+        }
+
+        System.out.println("\n");
+
+        System.out.println(Arrays.toString(DaysOfWeek.values())
+                .replace("[", "")
+                .replace("]", ""));
+        System.out.println(DaysOfWeek.FRIDAY.position);
+        System.out.println(DaysOfWeek.values().length);
+
+        for (int ie = 0; ie < DaysOfWeek.values().length; ie++) {
+            System.out.println(DaysOfWeek.values()[ie]);
+        }
+
+        System.out.println("\n");
+
+        String day = "bambucea";
+
+        DaysOfWeek daysOfWeek = DaysOfWeek.UNSPECIFIED;
+
+        try {
+            daysOfWeek = DaysOfWeek.valueOf(day);
+        } catch (Exception exc) {
+            System.out.println(exc);
+        }
+
+        switch (daysOfWeek) {
+            case MONDAY:
+                System.out.println("Day is MONDAY");
+                break;
+            case TUESDAY:
+                System.out.println("Day is TUESDAY");
+                break;
+            case WEDNESDAY:
+                System.out.println("Day is WEDNESDAY");
+                break;
+            case THURSDAY:
+                System.out.println("Day is THURSDAY");
+                break;
+            case FRIDAY:
+                System.out.println("Day is FRIDAY");
+                break;
+            case SATURDAY:
+                System.out.println("Day is SATURDAY");
+                break;
+            case SUNDAY:
+                System.out.println("Day is SUNDAY");
+                break;
+            case UNSPECIFIED:
+                System.out.println("Input error");
+                break;
+        }
+
+        System.out.println("\n");
+
+        List myList = new ArrayList();
+
+        myList.add("my");
+        myList.add("name");
+        myList.add("is...");
+        System.out.println(myList.get(1));
+        myList.remove(1);
+        System.out.println(myList.get(1));
+
+        for (int zi = 0; zi < myList.size(); zi++)
+            System.out.println(myList.get(zi));
+        for (Object ss : myList)
+            System.out.println(ss);
+
+        ArrayList myList2 = new ArrayList();
+        myList2.add("my");
+        myList2.add("name");
+        myList2.add("is...");
+        myList2.add(123);
+        for (Object s : myList2)
+            System.out.println(s);
+
+        System.out.println("\n");
+
+        ArrayList<String> myList3 = new ArrayList<>();
+        System.out.println(myList2.contains("name"));
+        Object[] niz = myList.toArray(new String[myList.size()]);
+        System.out.println(Arrays.toString(niz));
+
+        System.out.println("\n");
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("1234567890123", "John Davidson");
+        hashMap.put("1234567890124", "Tom Dvorak");
+        System.out.println(hashMap.get("1234567890124"));
+
+        System.out.println("\n");
+
+        NodeList list = new NodeList();
+        list.add(1);
+        list.add(5);
+        list.add(10);
+        System.out.println(list.getValue(2));
+
+
+        System.out.println("\n");
+
+        System.out.println(LocalDate.now().getEra());
+
+        LocalDate date = LocalDate.of(2000, 11, 20);
+        LocalTime time = LocalTime.now();
+        System.out.println("Hour: " + time.getHour() + " Minutes: " + time.getMinute() + " Seconds: "
+                + time.getSecond());
+
+        System.out.println(LocalDateTime.now());
+
+        System.out.println("\n");
+
+        LocalDateTime dateTime = LocalDateTime.now();
+        int year = dateTime.getYear();
+        int month = dateTime.getMonthValue();
+        int day2 = dateTime.getDayOfMonth();
+        int hour = dateTime.getHour();
+        int minutes = dateTime.getMinute();
+        int seconds = dateTime.getSecond();
+        System.out.println("Today is " + dateTime.getMonth() + " " + day2 + ", " + year);
+        System.out.println("It is " + hour + " hours " + minutes + " minutes and " + seconds + "                seconds");
+        System.out.println("6 months from now: " + dateTime.plusMonths(6));
+        System.out.println("6 months ago: " + dateTime.minusMonths(6));
+
+        System.out.println("\n");
+
+        LocalDate localDate = LocalDate.of(1999, 12, 13);
+        LocalTime localTime = LocalTime.of(17, 50);
+        LocalDateTime localDateTime = LocalDateTime.of(localDate,
+                localTime);
+        System.out.println(localDateTime);
+        LocalDateTime localDateTime2 = LocalDateTime.of(1999, 12,
+                13, 17, 50);
+        System.out.println(localDateTime2);
+
+        System.out.println("\n");
+
+        Instant instant = Instant.now();
+        System.out.println(instant.toString());
+
+
+        //Thread.sleep(3000);
+        long period = instant.until(Instant.now(),
+                ChronoUnit.SECONDS);
+        System.out.println(period);
+
+        System.out.println("\n");
+        LocalDateTime ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        System.out.printf("%s %d %d at %d:%d%n", ldt.getMonth(),
+                ldt.getDayOfMonth(), ldt.getYear(), ldt.getHour(), ldt.getMinute());
+
+        System.out.println("\n");
+        String in = "19880705";
+        LocalDate date2 = LocalDate.parse(in, DateTimeFormatter.BASIC_ISO_DATE);
+        System.out.println(date2);
+
+
+        System.out.println("\n");
+
+        LocalDate now = LocalDate.now();
+        LocalDate birthday = LocalDate.of(1991, Month.JUNE, 23);
+        Period p = Period.between(birthday, now);
+        long p2 = ChronoUnit.DAYS.between(birthday, now);
+        long p3 = ChronoUnit.MONTHS.between(birthday, now);
+        System.out.println("You are " + p.getYears() + " years, " + p.getMonths() + " months, and " +
+                p.getDays() + " days old. (" + p2 + " days total or " + p3 + " months)");
+
+
+        System.out.println("\n");
+
+        String myText = "Hello World";
+        try (FileOutputStream fs = new FileOutputStream("myFile.txt");) {
+            fs.write(myText.getBytes());
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        try (FileInputStream fs = new FileInputStream("myFile.txt");) {
+            int content = fs.read();
+            while (content != -1) {
+                System.out.print((char) content);
+                content = fs.read();
+            }
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+        System.out.println("\n");
+
+        String myText2 = "Hello World2";
+        try (FileWriter fw = new FileWriter("myFile2.txt");) {
+            fw.write(myText2);
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        try (FileReader fr = new FileReader("myFile2.txt");) {
+            int c;
+            while ((c = fr.read()) != -1) {
+                System.out.print(c);
+            }
+        } catch (IOException exc) {
+            System.out.println(exc);
+        } finally {
+            System.out.println();
+        }
+
+        System.out.println("\n");
+
+        try (BufferedReader br = new BufferedReader(new FileReader("myFile2.txt"));) {
+            String l;
+            while ((l = br.readLine()) != null) {
+                System.out.println(l);
+            }
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        System.out.println("\n");
+
+        try {
+            BufferedInputStream input = new BufferedInputStream(
+                    new FileInputStream("myFile.txt "));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader input = new BufferedReader(new
+                    FileReader("myFile.txt "));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\n");
+
+        int variableA = 13;
+        double variableB = 13.13;
+        String variableC = "Hello!";
+        try (DataOutputStream out = new DataOutputStream(new FileOutputStream("myFile3.txt"));
+        ) {
+            out.writeInt(variableA);
+            out.writeDouble(variableB);
+            out.writeUTF(variableC);
+
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        try (DataInputStream in2 = new DataInputStream(new FileInputStream("myFile3.txt"));) {
+            System.out.println(in2.readInt());
+            System.out.println(in2.readDouble());
+            System.out.println(in2.readUTF());
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        System.out.println("\n");
+
+
+//////////////////////end
     }
 
     public static void passMethod(int xm) {
