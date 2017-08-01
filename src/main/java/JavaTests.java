@@ -1,6 +1,11 @@
 import Ex.*;
 
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -36,7 +41,7 @@ public class JavaTests {
     }
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, FileNotFoundException, IOException {
 
         System.out.println("Geani test");
        /* System.out.println("Geani test2");
@@ -428,11 +433,11 @@ public class JavaTests {
 
         System.out.println("\n");
 
-        Car car1 = new Car();
-        Car car2 = new Car("Ford");
+        Ex.Car car1 = new Ex.Car();
+        Ex.Car car2 = new Ex.Car("Ford");
 
-        Car car3 = new Car("Ford", "Fiesta");
-        Car car4 = new Car("Ford", "Fiesta", 3);
+        Ex.Car car3 = new Ex.Car("Ford", "Fiesta");
+        Ex.Car car4 = new Ex.Car("Ford", "Fiesta", 3);
 
         System.out.println("\n");
 
@@ -763,9 +768,146 @@ public class JavaTests {
 
         System.out.println("\n");
 
+        Car c = new Car();
+        c.setId(10);
+        c.setModel("Audi A8");
+        c.setMaximumSpeed(270.00);
+
+        FileOutputStream fos = new FileOutputStream("MyCar.xml");
+        XMLEncoder s = new XMLEncoder(fos);
+        s.writeObject(c);
+        s.close();
+
+        FileInputStream fis = new FileInputStream("MyCar.xml");
+        XMLDecoder objIn = new XMLDecoder(fis);
+        c = (Car) objIn.readObject();
+        System.out.println(c);
+
+        System.out.println("\n");
+
+        File[] roots = File.listRoots();
+        for (int fi = 0; fi < roots.length; fi++) {
+            System.out.println(roots[fi]);
+        }
+
+        System.out.println("\n");
+
+        File file = new File("user3_xmlFile.xml");
+        System.out.println("Absolute path = " + file.getAbsolutePath());
+        System.out.println("Name = " + file.getName());
+        System.out.println("Parent = " + file.getParent());
+        System.out.println("Path = " + file.getPath());
+        System.out.println("Is absolute = " + file.isAbsolute());
+
+        System.out.println("\n");
+        if (file.exists()) {
+            System.out.println("Is file = " + file.isFile());
+            System.out.println("Is directory = " + file.isDirectory());
+            System.out.println("Lenght = " + file.length());
+            instant = Instant.ofEpochMilli(file.lastModified());
+            dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd. MMMM. yyyy. HH:mm:ss");
+
+            System.out.println("Last modified = " + dateTime.format(dateTimeFormatter));
+            file.setReadOnly();
+        }
+
+        System.out.println("\n");
+
+        File path = new File("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\src\\main\\java\\Ex");
+        if (path.exists() && path.isDirectory()) {
+            File[] elements = path.listFiles();
+            for (int fi = 0; fi < elements.length; fi++) {
+                System.out.println(elements[fi].getName());
+            }
+        }
+
+        System.out.println("\n");
+
+        File testDirectory = new File("C:\\test");
+        try {
+            if (!testDirectory.exists()) {
+                testDirectory.mkdir();
+                System.out.println("Created a directory called " + testDirectory.getName());
+            } else {
+                System.out.println("Directory called " + testDirectory.getName() + " already exists.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Couldn't create a directory called "
+                    + testDirectory.getName());
+        }
+        System.out.println("\n");
+
+        File file2 = new File("C:\\test ");
+        if (file2.exists()) {
+            file2.delete();
+            System.out.println("File successfully deleted!");
+        } else {
+            System.out.println("Cannot delete " + file2.getName() + " because " + file2.getName() + " does not exist.");
+        }
+        System.out.println("\n");
+
+        File oldfile = new File("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\thirdFile2.txt");
+        File newfile = new File("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\thirdFile.txt");
+
+        if (!oldfile.exists()) {
+            System.out.println("File doesn't exists!");
+        }
+        if (newfile.exists()) {
+            System.out.println("File with desired name already exists!");
+        }
+        if (oldfile.renameTo(newfile)) {
+
+            System.out.println("Rename succesful");
+        } else {
+            System.out.println("Rename failed");
+        }
+
+
+        System.out.println("\n");
+
+        File afile = new File("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\users.txt");
+        File bfile = new File("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\users3.txt");
+        try (FileInputStream inStream = new FileInputStream(afile);
+             FileOutputStream outStream = new FileOutputStream(bfile)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inStream.read(buffer)) > 0) {
+                outStream.write(buffer, 0, length);
+            }
+
+            System.out.println("File is copied successfuly!");
+        } catch (IOException exc) {
+            System.out.println(exc);
+        }
+
+        System.out.println("\n");
+
+        Path source = Paths.get("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\users3.txt");
+        Path destination = Paths.get("C:\\Users\\gfleancu\\IdeaProjects\\GeaniFleancu\\users4.txt");
+        try {
+            if (!Files.exists(source)) {
+                System.out.println("File doesn't exists!");
+                return;
+            }
+            if (!Files.exists(destination.getParent())) {
+                System.out.println("Location doesn't exists!");
+                return;
+            }
+            if (Files.exists(destination)) {
+                System.out.println("File already exists on the location!");
+                return;
+            }
+            Files.copy(source, destination);
+            System.out.println("File " + source.getFileName() + " is copied!");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
 
 //////////////////////end
     }
+
 
     public static void passMethod(int xm) {
         xm = 10;

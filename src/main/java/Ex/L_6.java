@@ -6,7 +6,7 @@ public class L_6 {
     Exercițiul 1
     Securizați aplicația existentă astfel încât să nu raporteze o eroare.
      */
-    static int calculate(int a, int b, String op) {
+    private static int calculate(int a, int b, String op) {
         if (op.equals("+"))
             return a + b;
         if (op.equals("-"))
