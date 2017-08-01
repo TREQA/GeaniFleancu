@@ -32,3 +32,73 @@ metoda main are multe variabile declarate insa apoi nefolosite.
 
 a se evita nume de variabile scurte, cu exceptia celor folosite in iteratii (i, j ..)
 un nume trebuie sa explice cat mai clar ce este/face acea variabila.
+
+=====================================================================================
+
+Pachetul Ex
+
+
+numele pachetelor se scriu cu minuscule (ex)
+
+IGeom
+nume nu destul de lamuritor, poate 'IGeometricShape'?
+nu se pastreaza conventia cu interfetele care au nume ce incep cu 'I'
+pentru Operands, Operations din acelasi pachet.
+metodele arie si perimetru mai bine scrise in engleza pentru a intelege oricine.
+
+Quad
+cel mai bun practice (Encapsulation) este ca field-urile (x, y, a)
+sa fie private si sa aiba getter/setters.
+metoda Setxya nu urmeaza conventia camel (setXYA)
+
+Shape
+field-urile nu sunt private iar modul de initializare
+shapePosition = "(" + xShape + "," + yShape + ")" va folosi field-uri neinitializate
+
+Square este ok
+
+Square2 este ok, mai putin numele metodei Setxya ce vine de pe interfata
+
+Circle2
+field cirle2Radius ar merge privat si PI = 3.14 sa fie facut static
+
+nu sunt asa ok denumiri de clase Circle, Circle2. mai bine sa fie descris in nume
+ce au diferit: StaticDataCircle si Circle
+
+recomandare similara si pentru Calc, Calculator si Calculator2
+
+Calc
+String areaType si void calcArea() sunt abordari gresite
+folosind testul shape.getClass() este ok cat timp Circle si Rectangle nu au nimic comun
+
+Produs
+metoda introducereAdaosuri nu face ce ar trebui, ci doar afiseaza lista de adaosuri
+
+Calculator2
+este ok, atata doar ca si field-ul 'double a' trebuia declarat privat, ca si 'b'
+
+Car
+field-urile ar trebui sa apara inaintea constructorilor si ar fi foarte ok sa fie private.
+la constructorul cu mai multe argumente ar merge un this(make, model); la inceput
+
+Server
+declararea enum-ului ServerStatus sta mai bine la inceputul clasei.
+apoi field-urile ar merge ok sa fie private
+variabila 'statusState' are nume redundant, mai bine doar 'status'
+
+L_1, L_2, ...
+fiecare exercitiu cu rezolvarea sa ar putea fi in cate o metoda separata,
+pentru a nu fi main() asa voluminos. main() ar apela aceste metode.
+
+
+L_1
+gresita concatenarea de la randul 80: "Rezultat ex 2: " + a + b
+nu va aduna numerele a si b, le va concatena
+
+L_2
+greseli la adunarea matricilor la randul 106 si 113
+
+L_3
+printare incorecta linia 66 si 68: Rest > 1000 si Rest < 1000
+
+
