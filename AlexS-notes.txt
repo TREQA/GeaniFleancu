@@ -1,0 +1,34 @@
+
+Warning-urile indicate de mediul de dezvoltare (IntelliJ, Eclipse ..)
+e recomandat sa fie corectate.
+
+Sfat mai general: e bine ca orice clasa sa apartina de un pachet si
+nu de pachetul default. Asa stau mai bine organizate si nu apar
+conflicte de nume.
+
+Person.java
+cel mai bun practice este ca field-urile (firstName, lastName)
+sa fie private si aiba getter/setters.
+
+Student.java, Professor.java
+field-urile indexNumber, className mai bine private
+
+ReferenceType.java
+field-ul 'xrt' mai bun declarat privat si cu un nume mai sugestiv;
+un nume mai sugestiv pentru metoda 'passMethodrt',
+poate 'methodWithReferenceArg'
+
+Conversions.java
+nume mai sugestive pentru metode ('calvinToFahrenheit' - mai bine nume
+lungi atata timp cat sunt mai descriptive)
+
+JavaTests.java
+nu sunt in regula metode lungi, cu multe linii de cod (cum e in 'main').
+se prefera spargerea unui cod lung in apeluri de metode, pe grupuri
+de interes. de exemplu: typeTests();  printTests();  arrayTests();  samd.
+nicio metoda nu ar trebui sa aiba mai mult de 10-15 randuri de cod.
+
+metoda main are multe variabile declarate insa apoi nefolosite.
+
+a se evita nume de variabile scurte, cu exceptia celor folosite in iteratii (i, j ..)
+un nume trebuie sa explice cat mai clar ce este/face acea variabila.
