@@ -15,13 +15,6 @@ public class L_4 {
         apoi trebuie create două clase, Horse şi Dog, care vor moşteni prima
         clasă Animal.
          */
-        abstract class Animal {
-        }
-        class Dog extends Animal {
-        }
-        class Horse extends Animal {
-        }
-
 
         System.out.println("\n");
         /*

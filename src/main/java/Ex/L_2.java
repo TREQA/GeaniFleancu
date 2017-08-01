@@ -16,8 +16,8 @@ public class L_2 {
         Sarcina dvs. este să declarați variabilele care se pot utiliza în acestscop.
          */
 
-        int years;
-        double salary;
+        int aniDeMunca;
+        double salariu;
 
         /*Exerciţiul 2
         Trebuie să declarăm două variabile. O variabilă de tip double cu

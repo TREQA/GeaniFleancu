@@ -5,15 +5,12 @@ import java.util.Arrays;
 public class L_3 {
 
     public static void main(String[] args) {
-/*
-Exerciţiul 1
+        /*
+        Exerciţiul 1
 
-Este necesară următoarea construcție logică: dacă x primește o
-
-valoare mai mare decât zero, se intră în blocul de cod și x este egal cu
-
-3.
- */
+        Este necesară următoarea construcție logică: dacă x primește o
+        valoare mai mare decât zero, se intră în blocul de cod și x este egal cu 3.
+         */
 
         int x = 0;
         if (x > 0) {
@@ -135,9 +132,8 @@ valoare mai mare decât zero, se intră în blocul de cod și x este egal cu
          */
         String[][] users = {{"petar", "petrovic", "1111"},
 
-                {"jovan", "jovanovic", "2222"}, {"zoran", "ivanovic", "3333"}
+                {"jovan", "jovanovic", "2222"}, {"zoran", "ivanovic", "3333"}};
 
-        };
         String[] usersNames = new String[users.length];
 
         for (int userNumber = 0; userNumber < users.length; userNumber++) {
