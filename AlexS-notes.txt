@@ -101,4 +101,47 @@ greseli la adunarea matricilor la randul 106 si 113
 L_3
 printare incorecta linia 66 si 68: Rest > 1000 si Rest < 1000
 
+L_4
+pt cerinta de la linia 75, ar fi fost interesant sa se calculeze
+ariile folosindu-se asa numitele metode virtuale.
+clasa Shape sa aiba metoda computeArea()
+apoi clasele Circle, Square si Rectangle sa aiba fiecare
+metodele computeArea() proprii, anotate cu @Override pt claritate.
+un exemplu de apel de metoda virtuala:
+Shape c = new Circle();
+c.computeArea(); // desi c are tipul Shape, instanta este tip Circle, se va apela metoda din Circle
 
+L_4 cerinta de la linia 102: nu e respectat faptul ca
+Pizza şi Sendviş necesită în constructor numele şi preţul produsului.
+metoda de introducereAdaos care introduce adaosul pentru produs nu este
+corect implementata. ar fi ok un singur parametru String care se va adauga la adaosuri[].
+
+L_5
+e ok, mai putin 'Id' din clasa User, ar merge cu litere mici: 'id'
+sau si mai bine, sa fie obtinut cu getId()
+la linia 192, pentru sortare ar fi mers:
+for (int au = ui+1;  ..   pentru ca nu are rost sa compari un user cu el insusi.
+ar fi mers si niste nume de variabile mai lungi/sugestive
+
+L_6
+este bun practice la if then else-uri sa fie pusa ramura 'pozitiva' a if-ului drept prima.
+mai exact ramura if-ului pe unde se intra cel mai des sa fie prima:
+if (!firstName.equals("")) { //cel mai probabil numele nu va fi vid
+    this.firstName = firstName;
+} else {
+    throw new InvalidFirstNameException();
+}
+astfel se evita overhead, chiar daca infim.
+
+L_7
+linia 51,52: nu prea merge zis la variabila aia 'filesToRead' pentru ca sunt defapt obiecte Reader,
+mai bine merge spus 'bufferedReaders' sau 'readers'.
+la linia 56: nu bufferReader.close(); (bufferReader este de la exercitiul de mai sus)
+corect e bufferReader2.close();
+
+User3
+in engleza cred ca e serialize si deserialize.
+dar bun exemplu de clasa bine incapsulata, cu field-uri private accesibile controlat
+
+ultimul exercitiu din L_7, mi se pare ca se poate muta un fisier si in moduri mai simple:
+https://stackoverflow.com/questions/4645242/how-to-move-file-from-one-location-to-another-location-in-java
