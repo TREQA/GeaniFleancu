@@ -143,11 +143,11 @@ public class L_5 {
         deja un utilizator cu același ID, înlocuiți vechiul utilizator cu cel nou.
         Afișați lista Users.
          */
-        ArrayList usersToAdd = new ArrayList();
+        ArrayList<User> usersToAdd = new ArrayList<>();
         usersToAdd.add(new User(4, "Goran"));
         usersToAdd.add(new User(2, "Ilija"));
         usersToAdd.add(new User(6, "Nikola"));
-        ArrayList users2 = new ArrayList();
+        ArrayList<User> users2 = new ArrayList<>();
         users2.add(new User(1, "Petar"));
         users2.add(new User(2, "Jovan"));
         users2.add(new User(3, "Zoran"));
@@ -156,8 +156,9 @@ public class L_5 {
         for (int uta = 0; uta < usersToAdd.size(); uta++) {
             boolean userExists = false;
             for (int u2 = 0; u2 < users2.size(); u2++) {
-                if (((User) users2.get(u2)).Id == ((User) usersToAdd.get(uta)).Id) {
+                if ((users2.get(u2)).Id == ((usersToAdd.get(uta)).Id)) {
                     users2.set(u2, usersToAdd.get(uta));
+                    userExists = true;
                 }
             }
             if (!userExists)
@@ -176,7 +177,7 @@ public class L_5 {
         Sortați utilizatorii în funcție de ID și afișați lista la ieșire.
          */
 
-        ArrayList users3 = new ArrayList();
+        ArrayList<User> users3 = new ArrayList<>();
         users3.add(new User(4, "Goran"));
         users3.add(new User(2, "Ilija"));
         users3.add(new User(6, "Nikola"));
@@ -188,13 +189,13 @@ public class L_5 {
         User tmp;
         for (int ui = 0; ui < users3.size(); ui++) {
             min = ui;
-            for (int uu = ui; uu < users3.size(); uu++) {
-                if (((User) users3.get(uu)).Id < ((User) users3.get(min)).Id) {
-                    min = uu;
+            for (int au = ui; au < users3.size(); au++) {
+                if ((users3.get(au)).Id < (users3.get(min)).Id) {
+                    min = au;
                 }
             }
-            tmp = (User) users3.get(min);
-            users3.set(min, (User) users3.get(ui));
+            tmp = users3.get(min);
+            users3.set(min, users3.get(ui));
             users3.set(ui, tmp);
         }
         for (Object u4 : users3)
