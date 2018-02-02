@@ -1,0 +1,18 @@
+  header.createCell(0).setCellValue("CIF");
+        header.createCell(1).setCellValue("MAX AMOUNT");
+        header.createCell(2).setCellValue("BRANCH");
+        header.createCell(3).setCellValue("AMOUNT");
+        header.createCell(4).setCellValue("APPLIED DATE");
+        header.createCell(5).setCellValue("CARD TYPE");
+        header.createCell(6).setCellValue("PHONE NUMBER");
+asta reprezinta pe rand coloanele
+deci ultima e phone number
+iar la flexi
+        header.createCell(0).setCellValue("CIF");
+        header.createCell(1).setCellValue("AMOUNT");
+        header.createCell(2).setCellValue("DURATION");
+        header.createCell(3).setCellValue("INTEREST");
+        header.createCell(4).setCellValue("INTEREST_TYPE");
+        header.createCell(5).setCellValue("INSTALLMENT_VALUE");
+        header.createCell(6).setCellValue("APPLIED DATE");
+        header.createCell(7).setCellValue("PHONE NUMBER");

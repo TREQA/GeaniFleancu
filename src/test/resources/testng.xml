@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AppiumSuite" verbose="7">
+    <test name="MainFunctionality">
+        <classes>
+            <class name="REST_Tests.Login_Tests"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,27 @@
+Command Line
+
+Normally in dev mode, you will use your IDE to run a *.feature file directly or via the companion 'runner' JUnit Java class. When you have a 'runner' class in place, it would be possible to run it from the command-line as well.
+
+Note that the mvn test command only runs test classes that follow the *Test.java naming convention by default. But you can choose a single test to run like this:
+
+mvn test -Dtest=CatsRunner
+
+Switching the Environment
+
+There is only one thing you need to do to switch the environment - which is to set a Java system property.
+
+The recipe for doing this when running Maven from the command line is:
+
+mvn test -DargLine="-Dkarate.env=e2e"
+
+Test Suites
+
+The recommended way to define and run test-suites and reporting in Karate is to use the parallel runner, described in the next section. The approach in this section is more suited for troubleshooting in dev-mode, using your IDE.
+One way to define 'test-suites' in Karate is to have a JUnit class with the @RunWith(Karate.class) annotation at a level 'above' (in terms of folder hierarchy) all the *.feature files in your project. So if you take the previous folder structure example:
+
+mvn test -Dcucumber.options="--tags ~@ignore" -Dtest=AnimalsTest
+
+ @BeforeClass
+    public static void before() {
+        System.setProperty("karate.env", "pre-prod");
+    }

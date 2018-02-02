@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fc2f1b52-f1fa-4503-8a6a-969c8c7ee250" activeEnvironment="Default" name="ESB   AccountHttpService (AccountListRetrieve)" resourceRoot="${projectDir}" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="3d3fd3d8-cd5b-4339-8689-55f35fbf9475" wsaVersion="NONE" name="bdAccount" type="wsdl" bindingName="{http://raiffeisenro.net/ESB/Interface/Account}bdAccount" soapVersion="1_1" anonymous="optional" definition="http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/AccountHttpSoap.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/AccountHttpSoap.wsdl"><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/AccountHttpSoap.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Account" targetNamespace="http://raiffeisenro.net/ESB/Interface/Account" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://raiffeisenro.net/ESB/Interface/Account" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account">
+  <wsdl:import namespace="http://raiffeisenro.net/ESB/Interface/Account" location="Account.wsdl"></wsdl:import>
+  <wsdl:binding name="bdAccount" type="tns:AccountListRetrieve">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RetrieveListByCif">
+      <soap:operation soapAction="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/>
+      <wsdl:input>
+        <soap:body parts="Request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="Response" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Fault">
+        <soap:fault name="Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountHttpService">
+    <wsdl:port name="AccountHttpPort" binding="tns:bdAccount">
+      <soap:address location="http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/Account.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="Account" targetNamespace="http://raiffeisenro.net/ESB/Interface/Account" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://raiffeisenro.net/ESB/Interface/Account" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons1="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://raiffeisenro.net/ESB/Interface/Account">
+      <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/Account" schemaLocation="Account.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidateAccountClosingRequestMsg">
+    <wsdl:part name="Request" element="acc:AccountCloseValidationRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoanPaymentScheduleByAccountRequestMsg">
+    <wsdl:part name="Request" element="acc:AccountLoanRetrievePaymentScheduleRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateAccountClosing_FaultMsg">
+    <wsdl:part name="Fault" element="acc:AccountCloseValidationFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateAccountClosingResponseMsg">
+    <wsdl:part name="Response" element="acc:AccountCloseValidationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoanPaymentScheduleByAccount_FaultMsg">
+    <wsdl:part name="Fault" element="acc:AccountLoanRetrievePaymentScheduleFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoanPaymentScheduleByAccountResponseMsg">
+    <wsdl:part name="Response" element="acc:AccountLoanRetrievePaymentScheduleResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="msgAccountListRetrieveResponse">
+    <wsdl:part name="Response" element="acc:AccountListRetrieveResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="msgAccountListRetrieveFault">
+    <wsdl:part name="Fault" element="acc:AccountListRetrieveFlt"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="msgAccountListRetrieveRequest">
+    <wsdl:part name="Request" element="acc:AccountListRetrieveRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AccountListRetrieve">
+    <wsdl:operation name="RetrieveListByCif">
+      <wsdl:input message="tns:msgAccountListRetrieveRequest"></wsdl:input>
+      <wsdl:output message="tns:msgAccountListRetrieveResponse"></wsdl:output>
+      <wsdl:fault name="Fault" message="tns:msgAccountListRetrieveFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LoanPaymentSchedule">
+    <wsdl:operation name="getLoanPaymentScheduleByAccount">
+      <wsdl:input name="Request" message="tns:getLoanPaymentScheduleByAccountRequestMsg"></wsdl:input>
+      <wsdl:output name="Response" message="tns:getLoanPaymentScheduleByAccountResponseMsg"></wsdl:output>
+      <wsdl:fault name="Fault" message="tns:getLoanPaymentScheduleByAccount_FaultMsg"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ValidateAccountClosing">
+    <wsdl:operation name="ValidateAccountClosing">
+      <wsdl:input name="ValidateAccountClosingRequest" message="tns:ValidateAccountClosingRequestMsg"></wsdl:input>
+      <wsdl:output name="ValidateAccountClosingResponse" message="tns:ValidateAccountClosingResponseMsg"></wsdl:output>
+      <wsdl:fault name="Fault" message="tns:ValidateAccountClosing_FaultMsg"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/Account.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://raiffeisenro.net/ESB/Schema/Account" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:act="http://raiffeisenro.net/ESB/Schema/Account/CommonTypes" xmlns:ict="http://raiffeisenro.net/ESB/Schema/CommonTypes" xmlns:ibt="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns="http://raiffeisenro.net/ESB/Schema/Account" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/BasicTypes" schemaLocation="InterfaceBasicTypes.xsd"/>
+  <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/CommonTypes" schemaLocation="InterfaceCommonTypes.xsd"/>
+  <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/Account/CommonTypes" schemaLocation="AccountCommonTypes.xsd"/>
+  <xsd:element name="AccountListRetrieveRequest">
+    <xsd:annotation>
+      <xsd:documentation>Account List Retrieve request message</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" name="Context" type="ict:ContextInfoWithSourceAppAndId"/>
+        <xsd:element minOccurs="1" name="AccountListRetrieveRq" type="acc:AccountListRetrieveRq"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="AccountListRetrieveRq">
+    <xsd:annotation>
+      <xsd:documentation>Account List Retrieve request type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="1" name="CIF" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MaxDetail" type="xsd:nonNegativeInteger">
+        <xsd:annotation>
+          <xsd:documentation>Valori posibile sunt 0 (Informatii minime si cu statusul in {0,1,2}), 1 (Informatii mai dealiate cu statusul in {1,2,3,4,5,6,7,8})</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="UserICBS" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="StatusDD" type="ibt:AccountStatus"/>
+      <xsd:element minOccurs="0" name="StatusSV" type="ibt:AccountStatus"/>
+      <xsd:element minOccurs="0" name="StatusLN" type="ibt:AccountStatus"/>
+      <xsd:element minOccurs="0" name="StatusTM" type="ibt:AccountStatus"/>
+      <xsd:element minOccurs="0" name="MaxRows" type="xsd:positiveInteger">
+        <xsd:annotation>
+          <xsd:documentation>Numarul maxim de conturi care vor fi aduse</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="Cursor" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Cursor ce va fi folosit pentru a aduce urmatoarele conturi</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountListRetrieveResponse" type="acc:AccountListRetrieveRs">
+    <xsd:annotation>
+      <xsd:documentation>Account List Retrieve response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="AccountListRetrieveRs">
+    <xsd:annotation>
+      <xsd:documentation>Account List Retrieve response type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Cursor" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="AccountDetails" type="act:WBI_Account"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="WBIError" type="ibt:WBI_Error"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountListRetrieveFlt" type="ibt:WICSFault">
+    <xsd:annotation>
+      <xsd:documentation>Account List Retrieve fault message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <!--drg-->
+  <xsd:complexType name="AccountLoanRetrievePaymentScheduleRq">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="AccountNumber" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Context" type="ict:ContextInfoWithSourceAppAndId"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AccountLoanRetrievePaymentScheduleRs">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Details" type="act:WBI_AcctLoanPaymentScheduleDetails" maxOccurs="unbounded"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountLoanRetrievePaymentScheduleRequest" type="acc:AccountLoanRetrievePaymentScheduleRq"/>
+  <xsd:element name="AccountLoanRetrievePaymentScheduleResponse" type="acc:AccountLoanRetrievePaymentScheduleRs"/>
+  <xsd:element name="AccountLoanRetrievePaymentScheduleFault" type="ibt:WICSFault"/>
+  <!--Account Closing Validation-->
+  <xsd:complexType name="AccountCloseValidationRq">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ContextInfo" type="ict:ContextInfoWithSourceApp"></xsd:element>
+      <xsd:element minOccurs="0" name="AccountId" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="AccountType" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="UpperLimit" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="LowerLimit" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="LimitCurrency" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AccountCloseValidationRs">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="AccountId" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Currency" type="ibt:WBI_Currency"></xsd:element>
+      <xsd:element minOccurs="0" name="Conditions" type="ibt:WBI_Condition" maxOccurs="unbounded"></xsd:element>
+      <xsd:element minOccurs="0" name="CloseData" type="act:WBI_AcctCloseData"></xsd:element>
+      <xsd:element minOccurs="0" name="CloseAccount" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountCloseValidationRequest" type="acc:AccountCloseValidationRq"/>
+  <xsd:element name="AccountCloseValidationResponse" type="acc:AccountCloseValidationRs"/>
+  <xsd:element name="AccountCloseValidationFault" type="ibt:WICSFault"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/InterfaceBasicTypes.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:ibt="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="WBI_Cycle">
+    <xsd:annotation>
+      <xsd:documentation>Cycle</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="Period" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Perioada de repetare:
+            M - luna
+            D - zi</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="1" name="Frequency" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Un numar (3 cifre, padat cu 0) care impreuna cu tipul determina frecventa.
+            Ex: M001 - lunar
+                    D001 - zilnic
+                    M002 - o data la doua luni</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="1" name="Day" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Ziua (numar, doua cifre, padat cu 0) in care se va declansa actiunea.
+            Ex: M00125 - lunar in data de 25
+            Pentru tipul D se va pune INTOTDEAUNA 00</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_County">
+    <xsd:annotation>
+      <xsd:documentation>County</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Name" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Code" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Abbrev" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Branch">
+    <xsd:annotation>
+      <xsd:documentation>Branch</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Id" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CostCenter" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Name" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Type" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CorrelationCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="County" type="ibt:WBI_County"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Names">
+    <xsd:annotation>
+      <xsd:documentation>Name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="BusinessName" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="FirstName" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="LastName" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="MiddleName" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="Salutation" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="TitlePrefix" type="xsd:string"/>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="Alias" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Address">
+    <xsd:annotation>
+      <xsd:documentation>Address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" default="" name="District" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>sat</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="AppNo" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>nr apartament</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="City" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation/>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="Country" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation/>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="CountryCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation/>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="County" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>sector</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="PRIMARY" name="AddressType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>tipul adresei: rezidenta, corespondenta, etc</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="HouseName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>bl., sc., et.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="PostalCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="State" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>abreviere judet</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="StreetName" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="StreetNo" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="FlatAddress" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag pentru modul in care este adresa. "N" - este sparta pe city, street, etc, iar pentru "Y" este doar in flatlines</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="6" default="" name="FlatLine" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="StartDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Data de la care e valabila adresa (numai pt adresa de corespondenta)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="EndDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Data pana la care e valabila adresa(numai pentru adresa de corespondenta)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="DeleteOnExpire" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag: "1"-Adresa se sterge dupa ce expira,"0"-Adresa nu se sterge dupa ce expira</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FiscalResidency">
+    <xsd:complexContent>
+      <xsd:extension base="ibt:WBI_Address">
+        <xsd:sequence>
+          <xsd:element name="Certificate" type="xsd:string" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The client has tax certificate</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AddressRBRO">
+    <xsd:annotation>
+      <xsd:documentation>New Address format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Type" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>The type of address (fixed list)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="Domicile Address|Mailing|Residency"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" default="RO" name="Country">
+        <xsd:annotation>
+          <xsd:documentation>2 Letter ISO Country Code (uppercase)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="County">
+        <xsd:annotation>
+          <xsd:documentation>The abbreviation of the county. For Romania is the name of Judet</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="Place">
+        <xsd:annotation>
+          <xsd:documentation>The name of the city if it is the case, or the name of Comuna (only for Romania)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="Village">
+        <xsd:annotation>
+          <xsd:documentation>The name of the village, if it is the case. Only for Romania</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="StreetType">
+        <xsd:annotation>
+          <xsd:documentation>The type of the street.An enumeration will be provided later on</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:pattern value="Alee|Bulevard|Cale|Drum|Fundatura|Intrare|Pasaj|Piata|Prelungire|Sosea|Splai|Strada|Ulita|AltTip"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="StreetName">
+        <xsd:annotation>
+          <xsd:documentation>The name of the Street</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="200"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="StreetNo">
+        <xsd:annotation>
+          <xsd:documentation>The name of the Street</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="Building">
+        <xsd:annotation>
+          <xsd:documentation>The detals about the house or block of flats</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="9"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="BuildingEntryNo">
+        <xsd:annotation>
+          <xsd:documentation>Suplimentary details  about the house or block of flats</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="Floor">
+        <xsd:annotation>
+          <xsd:documentation>Floor No</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="ApartamentNo">
+        <xsd:annotation>
+          <xsd:documentation>Apartament Number</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="9"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="Sector">
+        <xsd:annotation>
+          <xsd:documentation>Sectorul din BUCURESTI</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" default="" name="PostalCode">
+        <xsd:annotation>
+          <xsd:documentation>Postal Code/Zip Code for the address</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" default="true" name="Valid" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag that marks the address as valid on invalid. And Address can become invalid as consequence of some internal process.
+            If it is marked as invalid than it cannot be used as a reliable information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="POOffice">
+        <xsd:annotation>
+          <xsd:documentation>The number of the postal office</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="POBox">
+        <xsd:annotation>
+          <xsd:documentation>The number of the mail box from the postal office</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="FlatAddress">
+        <xsd:annotation>
+          <xsd:documentation>Address line formed from street type, name and number, building, buildingEntryNo, apartment</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="80"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="StartDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="EndDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Phone">
+    <xsd:annotation>
+      <xsd:documentation>Phone</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" default="" name="PhoneExtension" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="PhoneNo" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation/>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" default="" name="PhoneType" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="CountryCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="PhoneAvailable" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_PhoneRBRO">
+    <xsd:annotation>
+      <xsd:documentation>New Phone format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ibt:WBI_Phone">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Primary" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="StartDate" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="EndDate" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Email">
+    <xsd:annotation>
+      <xsd:documentation>Email</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EmailType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_EmailRBRO">
+    <xsd:annotation>
+      <xsd:documentation>New Email format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ibt:WBI_Email">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Primary" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="WBI_Date">
+    <xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[1-9][0-9]{7}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="WBI_Currency">
+    <xsd:annotation>
+      <xsd:documentation>Currency</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ISOCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ISOName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="RBRCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="RBRName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Rate" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_ExchangeRate">
+    <xsd:annotation>
+      <xsd:documentation>Exchange Rate</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ISOName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="BNRRate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SellRate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="BuyRate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AppSellRate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AppBuyRate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Units" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Error">
+    <xsd:annotation>
+      <xsd:documentation>Error</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" default="" name="ErrorCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="SourceSystem" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="ErrorMessage" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="AdditionalInfo" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="Step" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Warning">
+    <xsd:annotation>
+      <xsd:documentation>Warning</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" default="" name="WarningCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="SourceSystem" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="WarningMessage" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="AdditionalInfo" type="xsd:string"/>
+      <xsd:element minOccurs="0" default="" name="Step" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Bank">
+    <xsd:annotation>
+      <xsd:documentation>Bank</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Code" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Name" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="UnitName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Bic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="RzbShrt" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="City" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="County" type="ibt:WBI_County"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="WBI_Gender">
+    <xsd:annotation>
+      <xsd:documentation>Gender</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="F"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="WBI_PagingFilter">
+    <xsd:annotation>
+      <xsd:documentation>Paging Filter</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="MaxRows">
+        <xsd:simpleType>
+          <xsd:annotation>
+            <xsd:documentation>Maximum number of records to return (use "0" to retrieve all records)</xsd:documentation>
+          </xsd:annotation>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="StartFrom" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Retrieve MaxRows records, starting with this record number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="WBI_Flag">
+    <xsd:annotation>
+      <xsd:documentation>Yes/No Flag</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="YES"/>
+      <xsd:enumeration value="NO"/>
+      <xsd:enumeration value="Yes"/>
+      <xsd:enumeration value="No"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WBI_DownloadFileFormat">
+    <xsd:annotation>
+      <xsd:documentation>Output file format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PDF"/>
+      <xsd:enumeration value="XLS"/>
+      <xsd:enumeration value="MT940"/>
+      <xsd:enumeration value="MT942"/>
+      <xsd:enumeration value="CORA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WBI_CustId">
+    <xsd:annotation>
+      <xsd:documentation>Customer Id</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CIF"/>
+      <xsd:enumeration value="CNP"/>
+      <xsd:enumeration value="CUI"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BaseContextInfo" abstract="true">
+    <xsd:annotation>
+      <xsd:documentation>Base Context Info</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" type="xsd:string" name="UserLoginName">
+        <xsd:annotation>
+          <xsd:documentation>The Login name of the user that calls the web service from an application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" type="xsd:string" name="UserFullName">
+        <xsd:annotation>
+          <xsd:documentation>The Full name of the user that calls the web service from an application</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="AccountStatus">
+    <xsd:annotation>
+      <xsd:documentation>Valorile posibile sunt 1 (Conturi Deschise), 2 (Conturi Inchise), 3(Conduri Deschise si Inchise), 4(Fara conturi de acest tip). Daca nu este setat nici un camp din cele de status (StatusDD, StatusSV, StatusTM, StatusLN), raspunsul nu va contine nici un cont.
+        Daca se doreste si aducerea conturilor purjate, peste valorile anterior descrise (1, 2, 3, 4) se adauga un offset de 10 unitati;  11=Purjate si Deschise, 12=Purjate si Inchise, 13=Purjate, Deschise si Inchise, 14=Purjate,  orice alta valoare>14 este redusa la 4</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:positiveInteger"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="WBI_CustIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CIF"/>
+      <xsd:enumeration value="CNP"/>
+      <xsd:enumeration value="CUI"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="WICSFault">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="type" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="subtype" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="description" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_ResponseStatus">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="StatusCode" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="StatusMessage" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_Condition">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Name" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Value" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/InterfaceCommonTypes.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://raiffeisenro.net/ESB/Schema/CommonTypes" xmlns:ict="http://raiffeisenro.net/ESB/Schema/CommonTypes" xmlns:ibt="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns="http://raiffeisenro.net/ESB/Schema/CommonTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/BasicTypes" schemaLocation="InterfaceBasicTypes.xsd"/>
+  <xsd:complexType name="DocumentDownloadInqRs">
+    <xsd:annotation>
+      <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="FileId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unique file id used for later download</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="WBIError" type="ibt:WBI_Error"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocumentDownloadRs">
+    <xsd:annotation>
+      <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="FileContent" type="xsd:base64Binary">
+        <xsd:annotation>
+          <xsd:documentation>File content</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="1" maxOccurs="1" name="WorkStatus" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Status which reports if the file generation is stil in progress or not.
+            If the generation is Finished the the FileContent element  or the WBIError element will be populated.
+            Possible values: InProgress and Finished.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="1" name="WBIError" type="ibt:WBI_Error"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocumentDownloadRq">
+    <xsd:annotation>
+      <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="FileId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreateContextInfoWithSourceApplication">
+    <xsd:annotation>
+      <xsd:documentation>Account Create Context Info</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ibt:BaseContextInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SourceApplication" type="xsd:string"/>
+          <!--Ar fi util sa avem minOccurs = 1, dar exista impact pe AccountCreate si TransactionDescription => trebuie testat-->
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ContextInfoWithSourceAppAndId">
+    <xsd:annotation>
+      <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ibt:BaseContextInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SourceApplication" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>Maximum five letters string representing application channel name. (Eg: „MLBE”)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="SourceId" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>Unique number generated by the client used to identify the request in the logs.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <!--Ar fi util sa avem minOccurs = 1, dar exista impact pe
+          ChangeCardStatus si ChangeParticularLimit (GWTatra) => trebuie
+          testat-->
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ContextInfoWithSourceApp">
+    <xsd:annotation>
+      <xsd:documentation>SourceContextInfo</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ict:CreateContextInfoWithSourceApplication"></xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://intranet-test.rbro.rbg.cc/ESB/Services/Account/sca/Account/WEB-INF/wsdl/AccountCommonTypes.xsd</con:url><con:content><![CDATA[<xsd:schema elementFormDefault="qualified" targetNamespace="http://raiffeisenro.net/ESB/Schema/Account/CommonTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://raiffeisenro.net/ESB/Schema/Account/CommonTypes" xmlns:act="http://raiffeisenro.net/ESB/Schema/Account/CommonTypes" xmlns:ibt="http://raiffeisenro.net/ESB/Schema/BasicTypes">
+  <xsd:import namespace="http://raiffeisenro.net/ESB/Schema/BasicTypes" schemaLocation="InterfaceBasicTypes.xsd"/>
+  <xsd:complexType name="WBI_Account">
+    <xsd:annotation>
+      <xsd:documentation>Account Details type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="AcctType" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="BasicInformation" type="act:WBI_AcctBasicInfo"/>
+      <xsd:element minOccurs="0" name="DDDetails" type="act:WBI_AcctDDDetails"/>
+      <xsd:element minOccurs="0" name="Statement" type="act:WBI_AcctStatement"/>
+      <xsd:element minOccurs="0" name="LoanDetails" type="act:WBI_AcctLoanDetails"/>
+      <xsd:element minOccurs="0" name="TMDetails" type="act:WBI_AcctTMDetails"/>
+      <xsd:element minOccurs="0" name="Profile" type="act:WBI_AcctProfile"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="CustRelation" type="act:WBI_AcctToCustomerRelation"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Holds" type="act:WBI_AcctHold"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Transactions" type="act:WBI_AcctTransaction"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctBasicInfo">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="AccountId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Id-ul contului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="Status" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="StatusDetail" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="Balance" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="CurrentBalance" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ApplicationInfo" type="act:WBI_ApplicationInfo">
+        <xsd:annotation>
+          <xsd:documentation>Informatii despre cererea depusa de client pentru deschiderea contului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="OpeningDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Data deschiderii contului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="BankOfficer" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation/>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="BranchId" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="CostCenter" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="CostCenterName" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="ProductId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Id-ul produsului pentru acest cont</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PrimaryCurrency" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Nu se mai foloseste. Vezi agregatul Currency de
+            mai jos</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="AccountTitle" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Titlu contului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Currency" type="ibt:WBI_Currency">
+        <xsd:annotation>
+          <xsd:documentation>Moneda in care este deschis contul</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="IBAN" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_ApplicationInfo">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="ApplicationId" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ApplicationDate" type="ibt:WBI_Date"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctDDDetails">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="Group" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="OverDraftLimit" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="CreditInterest" type="act:WBI_AcctInterest"/>
+      <xsd:element minOccurs="0" name="DebitInterest" type="act:WBI_AcctInterest"/>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="Overdrafts" type="act:WBI_AcctOverdraft"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctInterest">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Period" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Cycle" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SpecificDay" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="NextInterestDate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="NextIntAccrueToDate" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="SCInterestControl" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctStatement">
+    <xsd:annotation>
+      <xsd:documentation>Account Statement Control</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="GenerateStatement" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag, Y sau N. Pt yes se va genera extras de
+            cont pentru N nu se va
+            genera extras de cont.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="NoOfCopies" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="UseAlternateAddress" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag, daca sa expedieze extrasul la adresa de
+                  corespondenta (Y) sau la
+                  cea normala (N)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Cycle" type="ibt:WBI_Cycle"/>
+      <xsd:element minOccurs="0" name="NextDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Se foloseste pentru a suprascrie, data default
+                  de generare a
+                  urmatorului extras de cont.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctLoanDetails">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="DisbursmentAccount" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="Amount" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="OpeningFee" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="MaturityDate" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="Memo" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="AppSourceFees" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="InterestRate" type="act:WBI_AcctInterestRate"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="IndirectLiabilities" type="act:WBI_AcctIndirectLiability"/>
+      <xsd:element minOccurs="0" name="Codes" type="act:WBI_AcctLoanCodes"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="Fees" type="act:WBI_AcctLoanFee"/>
+      <xsd:element default="" minOccurs="0" name="NextPmtAmt" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="PrincipalDue" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="InterestDue" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="PmtScheduleAmmount" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Valoare principal pentru rate descrescatoare</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PmtScheduleType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tip rata. 2-rate egale 3-rate descrescatoare</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PmtTerm" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Durata credit in luni</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="OrigAmmount" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Insurance" type="act:WBI_FirstInsurance"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctTMDetails">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="InterestDisposition" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Dobanda se transefera in alt cont sau se capitlaizeaza:
+              T - transfer
+              C - capitalizare</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PrincipalDisposition" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Principalul se transfera sau ramane in cont
+              T - transfer
+              N - ramane in cont</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="InterestAccount" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="InterestAccountType" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="InterestAccountCurrency" type="ibt:WBI_Currency"/>
+      <xsd:element default="" minOccurs="0" name="PrincipalAccount" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="PrincipalAccountType" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PrincipalAccountCurrency" type="ibt:WBI_Currency"/>
+      <xsd:element default="" minOccurs="0" name="Amount" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="InterestRate" type="act:WBI_AcctInterestRate"/>
+      <xsd:element default="" minOccurs="0" name="AutomaticRenewal" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag ce arata daca depositul se reinoieste automat:
+              S - nu
+              M - da</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="TransferFromAccount" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Contul din care se transfera suma pentru crearea depositului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="TransferFromAccountType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tipul contului din care se transfera suma pentru crearea depositului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="TransferFromAccountCurrency" type="ibt:WBI_Currency">
+        <xsd:annotation>
+          <xsd:documentation>Moneda contului din care se transfera suma
+            pentru crearea depositului</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="OwnerType" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Tipul enititatii ce detine contul; persoana
+            fizica (P) sau juridica (N)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="EndOfDeposit" type="ibt:WBI_Cycle"/>
+      <xsd:element minOccurs="0" name="WithholdTaxOnInterest" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag retinere impozit dobanda depozit Y-da, N-nu</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="WHTaxPercentage" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Procentajul retinere dobanda depozit</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="MaturityDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Date format: MMDDYYYY</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctProfile">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="AllowDebits" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="AllowCredits" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="PaymentManagement" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctToCustomerRelation">
+    <xsd:annotation>
+      <xsd:documentation>Account Customer Relation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="CustId" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="RelationType" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="CustIdType" type="ibt:WBI_CustIdType"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="FistName" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="LastName" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctHold">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="Type" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="RecordNumber" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="DateStart" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="DateEnd" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Amount" type="xsd:string"></xsd:element>
+      <xsd:element default="" minOccurs="0" name="Reason1" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Reason2" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Currency" type="ibt:WBI_Currency"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctTransaction">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="TransactionType" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="TransactionDate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="TransactionAmount" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Description" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctInterestRate">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Index" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Codul Indexului ratei dobanzii</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="VariationType">
+        <xsd:annotation>
+          <xsd:documentation>Tipul variatiei fata de index: A - absoluta si R - relativa (se
+            adauga la variatia standard definita la nivel de produs).</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="R"/>
+            <xsd:enumeration value="A"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Variation" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Variatia fata de index</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Rate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Rata efectiva=Valoare index+variatie</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="RevisionCycle" type="ibt:WBI_Cycle"/>
+      <xsd:element minOccurs="0" name="RevisionDate" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctIndirectLiability">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="GuarantorUID" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="Type" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="Value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctLoanCodes">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="GuaranteeCode" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="SMSA" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="CensusTract" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="TimeCode" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="RZBCode" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="TypeCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="RiskCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>CC113</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="DirectorOfficerEmployeeCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>CC113</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="RateChgsWoIndexStartDate" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>CC113</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_FirstInsurance">
+    <xsd:annotation>
+      <xsd:documentation>Added by Andrei Musat pentru LoanApp; prima rata de asigurare care 
+	se ia odata cu crearea contului de credit</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="InsuranceFlag" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Flag(Y/N) daca creditul este insotit de
+            asigurare</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="Amount" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Valoarea primei de asigurare</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PayerDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Descrierea ce va fi vizibila pe contul platitor</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element default="" minOccurs="0" name="PayeeDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Descrierea ce va fi vizibila pe contul
+            beneficiar</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctLoanFee">
+    <xsd:sequence>
+      <xsd:element default="" minOccurs="0" name="Id" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="CalculationCode" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="StartDateCode" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="BillingCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="Cycle" type="ibt:WBI_Cycle"/>
+      <xsd:element default="" minOccurs="0" name="Date" type="xsd:string"/>
+      <xsd:element default="" minOccurs="0" name="Value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--drg-->
+  <xsd:complexType name="WBI_AcctLoanPaymentScheduleDetails">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Installment" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="PaymentType" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ExpirationDateForRestructuring" type="xsd:date"></xsd:element>
+      <xsd:element minOccurs="0" name="NumberOfPayments" type="xsd:nonNegativeInteger"></xsd:element>
+      <xsd:element minOccurs="0" name="FirstPaymentDate" type="xsd:date"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctCloseData">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ClosingBalances" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="NetToCustomer" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="CreditInterestOwed" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="InterestWithheld" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="InterestWaived" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="InterestPenalty" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="NetCreditInterest" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="DebitInterestDue" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ServiceChargeDue" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Tax1Due" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="Tax2Due" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WBI_AcctOverdraft">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Type" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="LimitAmount" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="UsedAmount" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="InterestRate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="CreationDate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="MaturityDate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="InterestAccrued" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="LineNumber" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ExtendedDetails" type="act:OverdraftExtendedDetails"></xsd:element>
+      <xsd:element minOccurs="0" name="RecordNumber" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OverdraftExtendedDetails">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ACAMaxLimit" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="AuthorizingOfficer" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="IndexRateNumber" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="NextMaturityDate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="VarianceFromRate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ReviewLeadDays" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="NegotiatedInterestRate" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="NonAccrualOption" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="AccrualBase" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="CapitalizeODIntFlag" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="YearBase" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="CorrespPoolNbr" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="ACADescription" type="xsd:string"></xsd:element>
+      <xsd:element minOccurs="0" name="IndexRateDescription" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:endpoint>http://intranet.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint></con:endpoints><con:operation id="01b01082-2927-448b-af7c-2a69494f1ad2" isOneWay="false" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif" name="RetrieveListByCif" bindingOperationName="RetrieveListByCif" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2a20772-ea2e-4790-9f41-263129a0f5f5" name="AccountListRetrieve rq 1   (vali)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-pre.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+            <acc:CIF>2052120</acc:CIF>
+            <acc:MaxDetail>1</acc:MaxDetail>
+            <acc:StatusDD>1</acc:StatusDD>
+            <acc:StatusSV>1</acc:StatusSV>
+            <acc:StatusLN>1</acc:StatusLN>
+            <acc:StatusTM>1</acc:StatusTM>
+            <acc:MaxRows>50</acc:MaxRows>
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="bc396f01-72dc-420e-b413-a1e2896344c5" name="AccountListRetrieve rq 2   (irina)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+            <acc:CIF>3094644</acc:CIF>
+            <acc:MaxDetail>1</acc:MaxDetail>
+            <acc:StatusDD>1</acc:StatusDD>
+            <acc:StatusSV>1</acc:StatusSV>
+            <acc:StatusLN>1</acc:StatusLN>
+            <acc:StatusTM>1</acc:StatusTM>
+            <acc:MaxRows>50</acc:MaxRows>
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="aa107a3f-21e5-4403-8110-d5c9b80f3cde" name="AccountListRetrieve rq 3   (CIF cu 2 produse 133)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+         
+            <acc:CIF>706005</acc:CIF>
+            
+            <acc:MaxDetail>1</acc:MaxDetail>
+            <acc:StatusDD>1</acc:StatusDD>
+            
+            <acc:StatusSV>1</acc:StatusSV>
+            <acc:StatusLN>1</acc:StatusLN>
+            <acc:StatusTM>1</acc:StatusTM>
+            
+            <acc:MaxRows>50</acc:MaxRows>
+            
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="50f0951d-aab6-4977-b763-89aebbaabb67" name="AccountListRetrieve rq 4   (UAT LN MaxDetail=2)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+         
+            <acc:CIF>2052120</acc:CIF>
+            
+            <acc:MaxDetail>1</acc:MaxDetail><acc:StatusDD>1</acc:StatusDD>
+            
+            <acc:StatusSV>4</acc:StatusSV>
+            <acc:StatusLN>4</acc:StatusLN>
+            <acc:StatusTM>4</acc:StatusTM>
+            
+            <acc:MaxRows>50</acc:MaxRows>
+            
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="d2146614-6dd7-457a-a924-32c727563066" name="AccountListRetrieve rq 5   (UAT SV MaxDetail=1)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+         
+            <acc:CIF>2052120</acc:CIF>
+            
+            <acc:MaxDetail>128</acc:MaxDetail><acc:StatusDD>1</acc:StatusDD>
+            
+            <acc:StatusSV>4</acc:StatusSV>
+            <acc:StatusLN>4</acc:StatusLN>
+            <acc:StatusTM>4</acc:StatusTM>
+            
+            <acc:MaxRows>50</acc:MaxRows>
+            
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ac42ac84-632d-408e-b2f3-1451973b08c6" name="AccountListRetrieve rq 6   (UAT TM MaxDetail=1)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+            <acc:CIF>2374377</acc:CIF>
+            
+            <acc:MaxDetail>1</acc:MaxDetail>
+            
+            <acc:StatusDD>4</acc:StatusDD>
+            <acc:StatusSV>4</acc:StatusSV>
+            <acc:StatusLN>4</acc:StatusLN>
+            <acc:StatusTM>1</acc:StatusTM>
+            
+            <acc:MaxRows>10</acc:MaxRows>
+            
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call><con:call id="51d60123-2f25-4025-8e2f-2132b040a123" name="AccountListRetrieve rq 7   (UAT MultiProd MaxDetail=128)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://intranet-test.rbro.rbg.cc:80/ESB/Services/Account/sca/Account</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://raiffeisenro.net/ESB/Schema/Account" xmlns:bas="http://raiffeisenro.net/ESB/Schema/BasicTypes" xmlns:com="http://raiffeisenro.net/ESB/Schema/CommonTypes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:AccountListRetrieveRequest>
+         <acc:Context>
+            <bas:UserLoginName>T7026WBI</bas:UserLoginName>
+         </acc:Context>
+         <acc:AccountListRetrieveRq>
+            <acc:CIF>2374377</acc:CIF>
+            
+            <acc:MaxDetail>1</acc:MaxDetail>
+            
+            <acc:StatusDD>4</acc:StatusDD>
+            <acc:StatusSV>4</acc:StatusSV>
+            <acc:StatusLN>4</acc:StatusLN>
+            <acc:StatusTM>1</acc:StatusTM>
+            
+            <acc:MaxRows>10</acc:MaxRows>
+            
+         </acc:AccountListRetrieveRq>
+      </acc:AccountListRetrieveRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://raiffeisenro.net/ESB/Account/RetrieveListByCif"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

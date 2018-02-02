@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws -->
+<html class="turbolinks-progress-bar" lang="en"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="athena_dev / mobile-top-up-ws" property="og:title">
+<meta content="GitLab Community Edition" property="og:description">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="athena_dev / mobile-top-up-ws" property="twitter:title">
+<meta content="GitLab Community Edition" property="twitter:description">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>athena_dev / mobile-top-up-ws · GitLab</title>
+<meta content="GitLab Community Edition" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico">
+<link rel="stylesheet" media="all" href="./athena_dev _ mobile-top-up-ws · GitLab_files/application-82e9d33f829ed6b060defed91e02ecdf7639ae738fcd75718eab2ba1999ab185.css">
+<link rel="stylesheet" media="print" href="./athena_dev _ mobile-top-up-ws · GitLab_files/print-68eed6d8135d858318821e790e25da27b2b4b9b8dbb1993fa6765d8e2e3e16ee.css">
+<script src="./athena_dev _ mobile-top-up-ws · GitLab_files/application-f3c5038f64cae2cc2942b8d91aea7aec07db5004af9ea2b5df31f90818ef9435.js.download"></script><style>html.turbolinks-progress-bar::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #0076ff;
+  height: 3px;
+  opacity: 0.99;
+  width: 0%;
+  transition: width 300ms ease-out, opacity 150ms ease-in;
+  transform: translate3d(0,0,0);
+}</style>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="TTLF62zVA7wIOjyvyhDo4V5oekC46MtVeQPH7lE9bJr28P5KH88ow9FAYFPhMtdm2vPTCyR/wUiHA4mnKMkDxQ==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/gitlab/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+<link rel="alternate" type="application/atom+xml" title="mobile-top-up-ws activity" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws.atom?private_token=EWCkP9wh5x1NsdyHfQgT">
+
+
+
+
+<style>
+  [data-user-is] {
+    display: none !important;
+  }
+  
+  [data-user-is="45"] {
+    display: block !important;
+  }
+  
+  [data-user-is="45"][data-display="inline"] {
+    display: inline !important;
+  }
+  
+  [data-user-is-not] {
+    display: block !important;
+  }
+  
+  [data-user-is-not][data-display="inline"] {
+    display: inline !important;
+  }
+  
+  [data-user-is-not="45"] {
+    display: none !important;
+  }
+</style>
+
+</head>
+
+<body class="ui_charcoal" data-group="" data-page="projects:show" data-project="mobile-top-up-ws">
+<script>
+//<![CDATA[
+window.gon={};gon.api_version="v3";gon.default_avatar_url="https:\/\/alm-dev.rbro.rbg.cc\/gitlab\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.relative_url_root="\/gitlab";gon.shortcuts_path="\/gitlab\/help\/shortcuts";gon.user_color_scheme="white";gon.award_menu_url="\/gitlab\/emojis";gon.current_user_id=45;
+//]]>
+</script>
+<script>
+  window.project_uploads_path = "/gitlab/athena_dev/mobile-top-up-ws/uploads";
+  window.preview_markdown_path = "/gitlab/athena_dev/mobile-top-up-ws/preview_markdown";
+</script>
+
+<header class="navbar navbar-fixed-top navbar-gitlab with-horizontal-nav">
+<div class="container-fluid">
+<div class="header-content">
+<button aria-label="Toggle global navigation" class="side-nav-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</button>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-ellipsis-v"></i>
+</button>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="https://alm-dev.rbro.rbg.cc/gitlab/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/gitlab/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/issues" data-mr-path="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/merge_requests" value="">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="73" class="js-search-project-options" data-project-path="mobile-top-up-ws" data-name="mobile-top-up-ws" data-issues-path="/gitlab/athena_dev/mobile-top-up-ws/issues" data-mr-path="/gitlab/athena_dev/mobile-top-up-ws/merge_requests">
+<input type="hidden" name="search_code" id="search_code" value="true">
+<input type="hidden" name="repository_ref" id="repository_ref" value="master">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/gitlab/search/autocomplete" data-autocomplete-project-id="73" data-autocomplete-project-ref="master"></div>
+</form></div>
+
+</li>
+<li class="visible-sm visible-xs">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/search"><i class="fa fa-search"></i>
+</a></li>
+<li>
+<a title="Todos" aria-label="Todos" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/todos"><i class="fa fa-bell fa-fw"></i>
+<span class="badge hidden todos-pending-count">
+0
+</span>
+</a></li>
+<li>
+<a title="New project" aria-label="New project" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/projects/new"><i class="fa fa-plus fa-fw"></i>
+</a></li>
+<li class="header-user dropdown">
+<a class="header-user-dropdown-toggle" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/t026zahaa"><img width="26" height="26" class="header-user-avatar" src="./athena_dev _ mobile-top-up-ws · GitLab_files/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png" alt="No avatar">
+<i class="fa fa-caret-down"></i>
+</a><div class="dropdown-menu-nav dropdown-menu-align-right">
+<ul>
+<li>
+<a class="profile-link" aria-label="Profile" data-user="t026zahaa" href="https://alm-dev.rbro.rbg.cc/gitlab/t026zahaa">Profile</a>
+</li>
+<li>
+<a aria-label="Profile Settings" href="https://alm-dev.rbro.rbg.cc/gitlab/profile">Profile Settings</a>
+</li>
+<li class="divider"></li>
+<li>
+<a class="sign-out-link" aria-label="Sign out" rel="nofollow" data-method="delete" href="https://alm-dev.rbro.rbg.cc/gitlab/users/sign_out">Sign out</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h1 class="title"><a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev">athena_dev</a> / <a class="project-item-select-holder" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws">mobile-top-up-ws</a><button name="button" type="button" class="dropdown-toggle-caret js-projects-dropdown-toggle" aria-label="Toggle switch project dropdown" data-target=".js-dropdown-menu-projects" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></button></h1>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://alm-dev.rbro.rbg.cc/gitlab/"><svg width="36" height="36" class="tanuki-logo">
+  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+</svg>
+
+</a></div>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" value=""><i class="fa fa-search dropdown-input-search"></i><i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/gitlab/athena_dev/mobile-top-up-ws/find_file/master";
+</script>
+
+<div class="page-with-sidebar">
+<div class="sidebar-wrapper nicescroll">
+<div class="sidebar-action-buttons">
+<div class="nav-header-btn toggle-nav-collapse" title="Open/Close">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</div>
+<div class="nav-header-btn pin-nav-btn has-tooltip  js-nav-pin" data-container="body" data-placement="right" title="" data-original-title="Pin navigation">
+<span class="sr-only">Toggle navigation pinning</span>
+<i class="fa fa-fw fa-thumb-tack"></i>
+</div>
+</div>
+<ul class="nav nav-sidebar" tabindex="0" style="overflow: hidden; outline: none;">
+<li class="active home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/projects"><span>
+Projects
+</span>
+</a></li><li class=""><a title="Todos" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/todos"><span>
+Todos
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a class="dashboard-shortcuts-activity" title="Activity" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/activity"><span>
+Activity
+</span>
+</a></li><li class=""><a title="Groups" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/groups"><span>
+Groups
+</span>
+</a></li><li class=""><a title="Milestones" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/milestones"><span>
+Milestones
+</span>
+</a></li><li class=""><a title="Issues" class="dashboard-shortcuts-issues" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/issues?assignee_id=45"><span>
+Issues
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="dashboard-shortcuts-merge_requests" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/merge_requests?assignee_id=45"><span>
+Merge Requests
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Snippets" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/snippets"><span>
+Snippets
+</span>
+</a></li><li class=""><a title="Help" href="https://alm-dev.rbro.rbg.cc/gitlab/help"><span>
+Help
+</span>
+</a></li><li class=""><a title="Profile Settings" data-placement="bottom" href="https://alm-dev.rbro.rbg.cc/gitlab/profile"><span>
+Profile Settings
+</span>
+</a></li></ul>
+
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 50px; left: 213px; height: 899px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 1000; top: 942px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="controls">
+<div class="dropdown project-settings-dropdown">
+<a class="dropdown-new btn btn-default" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#" id="project-settings-button">
+<i class="fa fa-cog"></i>
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-align-right">
+<li class=""><a title="Members" class="team-tab tab" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/project_members"><span>
+Members
+</span>
+</a></li>
+</ul>
+</div>
+</div>
+<div class="nav-control scrolling-tabs-container">
+<div class="fade-left">
+<i class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs">
+<li class="home active"><a title="Project" class="shortcuts-project" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws"><span>
+Project
+</span>
+</a></li><li class=""><a title="Activity" class="shortcuts-project-activity" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/activity"><span>
+Activity
+</span>
+</a></li><li class=""><a title="Repository" class="shortcuts-tree" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class=""><a title="Graphs" class="shortcuts-graphs" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/graphs/master"><span>
+Graphs
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/issues"><span>
+Issues
+<span class="badge count issue_counter">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter">0</span>
+</span>
+</a></li><li class=""><a title="Wiki" class="shortcuts-wiki" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/network/master">Network
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Builds" class="shortcuts-builds" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/builds">Builds
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="content-wrapper page-with-layout-nav">
+
+
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+
+
+<div class=" ">
+<div class="content">
+
+<div class="project-home-panel text-center">
+<div class="container-fluid container-limited">
+<div class="project-avatar avatar s70 avatar-tile identicon" style="background-color: #E3F2FD; color: #555">M</div>
+<h1 class="project-title">
+mobile-top-up-ws
+<span class="visibility-icon has-tooltip" data-container="body" title="Private - Project access must be granted explicitly to each user.">
+<i class="fa fa-lock"></i>
+</span>
+</h1>
+<div class="project-home-desc">
+</div>
+<div class="project-repo-buttons project-action-buttons">
+<div class="count-buttons">
+<a class="btn star-btn toggle-star has-tooltip" title="Star project" data-remote="true" rel="nofollow" data-method="post" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/toggle_star"><i class="fa fa-star-o"></i>
+<span>Star</span>
+</a><div class="count-with-arrow">
+<span class="arrow"></span>
+<span class="count star-count">
+0
+</span>
+</div>
+
+<a title="Fork project" class="btn has-tooltip" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/forks/new"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="5 0 30 40"><path fill="#7E7E7E" fill-rule="evenodd" d="M22 29.535V22.72c4.19-1.21 7.4-5.917 7.4-5.917.34-.446.6-1.247.6-1.795v-4.543C31.196 9.773 32 8.48 32 7c0-2.21-1.79-4-4-4s-4 1.79-4 4c0 1.48.804 2.773 2 3.465v4.243c0 .17-.094.39-.21.502 0 0-1.253 1.203-1.84 1.742C22.5 18.277 21.12 19 20.09 19c-1.042 0-2.473-.74-3.977-2.086-.61-.546-1.746-1.574-1.746-1.574-.2-.182-.367-.555-.367-.83v-4.045C15.196 9.773 16 8.48 16 7c0-2.21-1.79-4-4-4S8 4.79 8 7c0 1.48.804 2.773 2 3.465v4.543c0 .537.274 1.345.61 1.78 0 0 3.25 4.59 7.39 5.88v6.867c-1.196.692-2 1.984-2 3.465 0 2.21 1.79 4 4 4s4-1.79 4-4c0-1.48-.804-2.773-2-3.465zM14 7c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm16 0c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-8 26c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2z"></path></svg>
+
+<span>Fork</span>
+</a><div class="count-with-arrow">
+<span class="arrow"></span>
+<a title="Forks" class="count has-tooltip" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/forks">0
+</a></div>
+
+</div>
+<div class="project-clone-holder">
+<div class="git-clone-holder input-group">
+<div class="input-group-btn">
+<div class="clone-dropdown-btn btn btn-static">
+<span>
+<span class="http-selector" data-html="true" data-placement="bottom" data-container="body" data-title="Set a password on your account&lt;br&gt;to pull or push via HTTPS">HTTPS</span>
+</span>
+</div>
+</div>
+<input type="text" name="project_clone" id="project_clone" value="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws.git" class="js-select-on-focus form-control" readonly="readonly">
+<div class="input-group-btn">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-target="#project_clone" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+</div>
+</div>
+<script>
+  $('ul.clone-options-dropdown a').on('click',function(e){
+    e.preventDefault();
+    var $this = $(this);
+    $('a.clone-dropdown-btn span').text($this.text());
+    $('#project_clone').val($this.attr('href'));
+  });
+</script>
+
+</div>
+</div>
+</div>
+</div>
+
+<nav class="container-fluid container-limited project-stats">
+<ul class="nav">
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/tree/master">Files (390 KB)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/commits/master">Commits (34)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/branches">Branch (1)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/tags">Tags (0)
+</a></li>
+<li class="project-repo-buttons-right">
+<div class="project-repo-buttons project-right-buttons">
+
+
+<div class="btn-group project-repo-btn-group">
+<span class="hidden-xs hidden-sm download-button">
+<div class="dropdown inline">
+<button class="btn" data-toggle="dropdown">
+<i class="fa fa-download"></i>
+<i class="fa fa-caret-down"></i>
+<span class="sr-only">
+Select Archive Format
+</span>
+</button>
+<ul class="dropdown-menu dropdown-menu-align-right" role="menu">
+<li class="dropdown-header">Source code</li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/repository/archive.zip?ref=master"><i class="fa fa-download"></i>
+<span>Download zip</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/repository/archive.tar.gz?ref=master"><i class="fa fa-download"></i>
+<span>Download tar.gz</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/repository/archive.tar.bz2?ref=master"><i class="fa fa-download"></i>
+<span>Download tar.bz2</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/repository/archive.tar?ref=master"><i class="fa fa-download"></i>
+<span>Download tar</span>
+</a></li>
+</ul>
+</div>
+</span>
+
+<div class="dropdown inline project-dropdown">
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#">
+<i class="fa fa-plus"></i>
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-align-right project-home-dropdown">
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/issues/new"><i class="fa fa-exclamation-circle fa-fw"></i>
+New issue
+</a></li>
+<li class="divider"></li>
+<li>
+<a rel="nofollow" data-method="post" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/forks?continue%5Bnotice%5D=You%27re+not+allowed+to+make+changes+to+this+project+directly.+A+fork+of+this+project+has+been+created+that+you+can+make+changes+in%2C+so+you+can+submit+a+merge+request.&amp;continue%5Bnotice_now%5D=You%27re+not+allowed+to+make+changes+to+this+project+directly.+A+fork+of+this+project+is+being+created+that+you+can+make+changes+in%2C+so+you+can+submit+a+merge+request.&amp;continue%5Bto%5D=%2Fgitlab%2Fathena_dev%2Fmobile-top-up-ws%2Fnew%2Fmaster&amp;namespace_key=48"><i class="fa fa-file fa-fw"></i>
+New file
+</a></li>
+</ul>
+</div>
+
+</div>
+<div class="dropdown notification-dropdown pull-right">
+<form class="inline notification-form" id="new_notification_setting" action="https://alm-dev.rbro.rbg.cc/gitlab/notification_settings" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="project_id" id="project_id" value="73">
+<input class="notification_setting_level" type="hidden" value="global" name="notification_setting[level]" id="notification_setting_level">
+<div class="js-notification-toggle-btns">
+<div class="">
+<button class="dropdown-new btn btn-default notifications-btn" data-target="dropdown-45-73-Project" data-toggle="dropdown" id="notifications-button" type="button">
+<i class="fa fa-bell js-notification-loading"></i>
+Global
+<i class="fa fa-caret-down"></i>
+</button>
+<ul class="dropdown-45-73-Project dropdown-menu dropdown-menu-align-right dropdown-menu-large dropdown-menu-no-wrap dropdown-menu-selectable" role="menu">
+<li role="menuitem"><a class="update-notification is-active" data-notification-level="global" data-notification-title="Global" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#"><strong class="dropdown-menu-inner-title">Global</strong><span class="dropdown-menu-inner-content">Use your global notification setting</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="watch" data-notification-title="Watch" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#"><strong class="dropdown-menu-inner-title">Watch</strong><span class="dropdown-menu-inner-content">You will receive notifications for any activity</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="mention" data-notification-title="On mention" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#"><strong class="dropdown-menu-inner-title">On mention</strong><span class="dropdown-menu-inner-content">You will receive notifications only for comments in which you were @mentioned</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="participating" data-notification-title="Participate" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#"><strong class="dropdown-menu-inner-title">Participate</strong><span class="dropdown-menu-inner-content">You will only receive notifications for threads you have participated in</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="disabled" data-notification-title="Disabled" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#"><strong class="dropdown-menu-inner-title">Disabled</strong><span class="dropdown-menu-inner-content">You will not get any notifications via email</span></a></li>
+<li class="divider"></li>
+<li>
+<a class="update-notification" data-notification-level="custom" data-notification-title="Custom" data-target="#modal-45-73-Project" data-toggle="modal" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#" role="button">
+<strong class="dropdown-menu-inner-title">Custom</strong>
+<span class="dropdown-menu-inner-content">You will only receive notifications for the events you choose</span>
+</a>
+</li>
+</ul>
+
+</div>
+</div>
+</form></div>
+
+</div>
+</li>
+</ul>
+</nav>
+<div class="container-fluid container-limited project-last-commit">
+<a class="commit_short_id" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/commit/f466b8f75c25594b2fa1910959ec61a0d8638f4d">f466b8f7</a>
+<a class="commit-row-message" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws/commit/f466b8f75c25594b2fa1910959ec61a0d8638f4d">- change build details</a>
+·
+<time class="js-timeago" datetime="2017-10-13T12:05:42Z" title="" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Oct 13, 2017 3:05pm GMT+0300">12 days ago</time> by
+<a class="commit-author-link has-tooltip" title="aolteanu@tremend.ro" href="https://alm-dev.rbro.rbg.cc/gitlab/t026oltea"><span class="commit-author-name">Andrei Olteanu</span></a>
+
+</div>
+<div class="container-fluid container-limited">
+<div class="project-show-readme">
+<article class="readme-holder">
+<div class="pull-right">
+</div>
+<div class="file-content wiki">
+<h1 dir="auto">
+<a id="mobile-top-up-service" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#mobile-top-up-service" aria-hidden="true"></a>Mobile top up service</h1>
+
+<p dir="auto">This service deals with operations involving mobile operator recharge services</p>
+
+<h3 dir="auto">
+<a id="get-mobile-operators-catalog-get" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#get-mobile-operators-catalog-get" aria-hidden="true"></a>Get mobile operators catalog: GET</h3>
+
+<h3 dir="auto">
+<a id="v1providers" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#v1providers" aria-hidden="true"></a>/v1/providers</h3>
+
+<h3 dir="auto">
+<a id="request" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#request" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/mobile-top-up-ws#response" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight javascript white" v-pre="true"><code><span class="p">{</span>
+  <span class="s2">"isInWorkingHours"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"providers"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"providerName"</span><span class="p">:</span> <span class="s2">"Orange"</span><span class="p">,</span>
+      <span class="s2">"rechargeType"</span><span class="p">:</span> <span class="s2">"RECHARGING_CODE"</span><span class="p">,</span>
+      <span class="s2">"recharges"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+          <span class="s2">"ronAmount"</span><span class="p">:</span> <span class="mf">27.59</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Orange Prepay 5 EUR"</span><span class="p">,</span>
+          <span class="s2">"barcode"</span><span class="p">:</span> <span class="s2">""</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+          <span class="s2">"ronAmount"</span><span class="p">:</span> <span class="mf">33.11</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Prepay 6 EUR"</span><span class="p">,</span>
+          <span class="s2">"barcode"</span><span class="p">:</span> <span class="s2">""</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"providerName"</span><span class="p">:</span> <span class="s2">"Telekom"</span><span class="p">,</span>
+      <span class="s2">"rechargeType"</span><span class="p">:</span> <span class="s2">"RECHARGING_CODE"</span><span class="p">,</span>
+      <span class="s2">"recharges"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+          <span class="s2">"ronAmount"</span><span class="p">:</span> <span class="mf">27.59</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Telekom 5 EUR"</span><span class="p">,</span>
+          <span class="s2">"barcode"</span><span class="p">:</span> <span class="s2">""</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</article>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div aria="{:labelledby=&gt;&quot;custom-notifications-title&quot;}" class="modal fade" id="modal-45-73-Project" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button aria="{:label=&gt;&quot;close&quot;}" class="close" data-dismiss="modal" type="button">
+<span aria="{:hidden=&gt;&quot;true&quot;}">×</span>
+</button>
+<h4 class="modal-title" id="custom-notifications-title">
+Custom notification events
+</h4>
+</div>
+<div class="modal-body">
+<div class="container-fluid">
+<form class="custom-notifications-form" id="new_notification_setting" action="https://alm-dev.rbro.rbg.cc/gitlab/notification_settings" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="TTLF62zVA7wIOjyvyhDo4V5oekC46MtVeQPH7lE9bJr28P5KH88ow9FAYFPhMtdm2vPTCyR/wUiHA4mnKMkDxQ=="><input type="hidden" name="project_id" id="project_id" value="73">
+<div class="row">
+<div class="col-lg-4">
+<h4 class="prepend-top-0">
+Notification events
+</h4>
+<p>
+Custom notification levels are the same as participating levels. With custom notification levels you will also receive notifications for select events. To find out more, check out
+<a href="http://docs.gitlab.com/ce/workflow/notifications.html" target="_blank">notification emails</a>.
+</p>
+</div>
+<div class="col-lg-8">
+<div class="form-group">
+<div class="checkbox prepend-top-0">
+<label for="modal-45-73-Project_notification_setting[new_note]">
+<input name="notification_setting[new_note]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[new_note]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_note]">
+<strong>
+New note
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[new_issue]">
+<input name="notification_setting[new_issue]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[new_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_issue]">
+<strong>
+New issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[reopen_issue]">
+<input name="notification_setting[reopen_issue]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[reopen_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reopen_issue]">
+<strong>
+Reopen issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[close_issue]">
+<input name="notification_setting[close_issue]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[close_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[close_issue]">
+<strong>
+Close issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[reassign_issue]">
+<input name="notification_setting[reassign_issue]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[reassign_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reassign_issue]">
+<strong>
+Reassign issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[new_merge_request]">
+<input name="notification_setting[new_merge_request]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[new_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_merge_request]">
+<strong>
+New merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[reopen_merge_request]">
+<input name="notification_setting[reopen_merge_request]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[reopen_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reopen_merge_request]">
+<strong>
+Reopen merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[close_merge_request]">
+<input name="notification_setting[close_merge_request]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[close_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[close_merge_request]">
+<strong>
+Close merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[reassign_merge_request]">
+<input name="notification_setting[reassign_merge_request]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[reassign_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reassign_merge_request]">
+<strong>
+Reassign merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-73-Project_notification_setting[merge_merge_request]">
+<input name="notification_setting[merge_merge_request]" type="hidden" value="0"><input id="modal-45-73-Project_notification_setting[merge_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[merge_merge_request]">
+<strong>
+Merge merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div></body></html>

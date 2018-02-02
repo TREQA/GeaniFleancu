@@ -1,0 +1,35 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="JavadocReference" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WeakerAccess" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="true" />
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="true" />
+      <option name="SUGGEST_PRIVATE_FOR_INNERS" value="false" />
+    </inspection_tool>
+    <inspection_tool class="groupsTestNG" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="groups">
+        <value>
+          <list size="16">
+            <item index="0" class="java.lang.String" itemvalue="accountStatementLoan" />
+            <item index="1" class="java.lang.String" itemvalue="accountStatement" />
+            <item index="2" class="java.lang.String" itemvalue="accountStatementCredit" />
+            <item index="3" class="java.lang.String" itemvalue="accountStatementDebit" />
+            <item index="4" class="java.lang.String" itemvalue="all" />
+            <item index="5" class="java.lang.String" itemvalue="accountList" />
+            <item index="6" class="java.lang.String" itemvalue="transactions" />
+            <item index="7" class="java.lang.String" itemvalue="transactionsDate" />
+            <item index="8" class="java.lang.String" itemvalue="transactionsList" />
+            <item index="9" class="java.lang.String" itemvalue="cyberReceipt" />
+            <item index="10" class="java.lang.String" itemvalue="payments" />
+            <item index="11" class="java.lang.String" itemvalue="login" />
+            <item index="12" class="java.lang.String" itemvalue="fxRates" />
+            <item index="13" class="java.lang.String" itemvalue="interestRates" />
+            <item index="14" class="java.lang.String" itemvalue="userInfo" />
+            <item index="15" class="java.lang.String" itemvalue="userProfile" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

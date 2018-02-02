@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GeaniFleancu.iml" filepath="$PROJECT_DIR$/.idea/GeaniFleancu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AthhenaWSTests.iml" filepath="$PROJECT_DIR$/AthhenaWSTests.iml" />
     </modules>
   </component>
 </project>

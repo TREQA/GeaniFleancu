@@ -6,11 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="GeaniFleancu" />
+        <module name="AtenaWSTests" />
+        <module name="AthenaWSTests" />
+        <module name="AthhenaWSTests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GeaniFleancu" target="1.8" />
+      <module name="AtenaWSTests" target="1.5" />
+      <module name="AthenaWSTests" target="1.5" />
+      <module name="AthhenaWSTests" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

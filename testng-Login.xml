@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestSuite">
+    <test name="login">
+
+        <groups>
+            <run>
+                <include name="login"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="REST_Print.Login_Print"/>
+            <class name="REST_Tests.Login_Tests"/>
+        </classes>
+
+        <!--packages>
+              <package name="REST_Print"/>
+              <package name="REST_Tests"/>
+          </packages-->
+
+    </test>
+</suite>

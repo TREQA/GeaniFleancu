@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws -->
+<html class="turbolinks-progress-bar" lang="en"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="athena_dev / payments-ws" property="og:title">
+<meta content="Payments BFF &amp; WS used in Athena scope (at least)" property="og:description">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="athena_dev / payments-ws" property="twitter:title">
+<meta content="Payments BFF &amp; WS used in Athena scope (at least)" property="twitter:description">
+<meta content="https://alm-dev.rbro.rbg.cc/gitlab/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>athena_dev / payments-ws · GitLab</title>
+<meta content="Payments BFF &amp; WS used in Athena scope (at least)" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico">
+<link rel="stylesheet" media="all" href="./athena_dev _ payments-ws · GitLab_files/application-82e9d33f829ed6b060defed91e02ecdf7639ae738fcd75718eab2ba1999ab185.css">
+<link rel="stylesheet" media="print" href="./athena_dev _ payments-ws · GitLab_files/print-68eed6d8135d858318821e790e25da27b2b4b9b8dbb1993fa6765d8e2e3e16ee.css">
+<script src="./athena_dev _ payments-ws · GitLab_files/application-f3c5038f64cae2cc2942b8d91aea7aec07db5004af9ea2b5df31f90818ef9435.js.download"></script><style>html.turbolinks-progress-bar::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #0076ff;
+  height: 3px;
+  opacity: 0.99;
+  width: 0%;
+  transition: width 300ms ease-out, opacity 150ms ease-in;
+  transform: translate3d(0,0,0);
+}</style>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="rhsvaeDU1zFskLTk+cleDstd294q3hi8RynSjMCQPXB8INKeYkX6SxMiOpbrkqek4ro+q0IEmbuKVQZlnGsN3Q==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://alm-dev.rbro.rbg.cc/gitlab/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/gitlab/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+<link rel="alternate" type="application/atom+xml" title="payments-ws activity" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws.atom?private_token=EWCkP9wh5x1NsdyHfQgT">
+
+
+
+
+<style>
+  [data-user-is] {
+    display: none !important;
+  }
+  
+  [data-user-is="45"] {
+    display: block !important;
+  }
+  
+  [data-user-is="45"][data-display="inline"] {
+    display: inline !important;
+  }
+  
+  [data-user-is-not] {
+    display: block !important;
+  }
+  
+  [data-user-is-not][data-display="inline"] {
+    display: inline !important;
+  }
+  
+  [data-user-is-not="45"] {
+    display: none !important;
+  }
+</style>
+
+</head>
+
+<body class="ui_charcoal" data-group="" data-page="projects:show" data-project="payments-ws">
+<script>
+//<![CDATA[
+window.gon={};gon.api_version="v3";gon.default_avatar_url="https:\/\/alm-dev.rbro.rbg.cc\/gitlab\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.relative_url_root="\/gitlab";gon.shortcuts_path="\/gitlab\/help\/shortcuts";gon.user_color_scheme="white";gon.award_menu_url="\/gitlab\/emojis";gon.current_user_id=45;
+//]]>
+</script>
+<script>
+  window.project_uploads_path = "/gitlab/athena_dev/payments-ws/uploads";
+  window.preview_markdown_path = "/gitlab/athena_dev/payments-ws/preview_markdown";
+</script>
+
+<header class="navbar navbar-fixed-top navbar-gitlab with-horizontal-nav">
+<div class="container-fluid">
+<div class="header-content">
+<button aria-label="Toggle global navigation" class="side-nav-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</button>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-ellipsis-v"></i>
+</button>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="https://alm-dev.rbro.rbg.cc/gitlab/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/gitlab/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/issues" data-mr-path="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/merge_requests" value="">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="48" class="js-search-project-options" data-project-path="payments-ws" data-name="payments-ws" data-issues-path="/gitlab/athena_dev/payments-ws/issues" data-mr-path="/gitlab/athena_dev/payments-ws/merge_requests">
+<input type="hidden" name="search_code" id="search_code" value="true">
+<input type="hidden" name="repository_ref" id="repository_ref" value="master">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/gitlab/search/autocomplete" data-autocomplete-project-id="48" data-autocomplete-project-ref="master"></div>
+</form></div>
+
+</li>
+<li class="visible-sm visible-xs">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/search"><i class="fa fa-search"></i>
+</a></li>
+<li>
+<a title="Todos" aria-label="Todos" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/todos"><i class="fa fa-bell fa-fw"></i>
+<span class="badge hidden todos-pending-count">
+0
+</span>
+</a></li>
+<li>
+<a title="New project" aria-label="New project" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://alm-dev.rbro.rbg.cc/gitlab/projects/new"><i class="fa fa-plus fa-fw"></i>
+</a></li>
+<li class="header-user dropdown">
+<a class="header-user-dropdown-toggle" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/t026zahaa"><img width="26" height="26" class="header-user-avatar" src="./athena_dev _ payments-ws · GitLab_files/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png" alt="No avatar">
+<i class="fa fa-caret-down"></i>
+</a><div class="dropdown-menu-nav dropdown-menu-align-right">
+<ul>
+<li>
+<a class="profile-link" aria-label="Profile" data-user="t026zahaa" href="https://alm-dev.rbro.rbg.cc/gitlab/t026zahaa">Profile</a>
+</li>
+<li>
+<a aria-label="Profile Settings" href="https://alm-dev.rbro.rbg.cc/gitlab/profile">Profile Settings</a>
+</li>
+<li class="divider"></li>
+<li>
+<a class="sign-out-link" aria-label="Sign out" rel="nofollow" data-method="delete" href="https://alm-dev.rbro.rbg.cc/gitlab/users/sign_out">Sign out</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h1 class="title"><a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev">athena_dev</a> / <a class="project-item-select-holder" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws">payments-ws</a><button name="button" type="button" class="dropdown-toggle-caret js-projects-dropdown-toggle" aria-label="Toggle switch project dropdown" data-target=".js-dropdown-menu-projects" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></button></h1>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://alm-dev.rbro.rbg.cc/gitlab/"><svg width="36" height="36" class="tanuki-logo">
+  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+</svg>
+
+</a></div>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" value=""><i class="fa fa-search dropdown-input-search"></i><i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/gitlab/athena_dev/payments-ws/find_file/master";
+</script>
+
+<div class="page-with-sidebar">
+<div class="sidebar-wrapper nicescroll">
+<div class="sidebar-action-buttons">
+<div class="nav-header-btn toggle-nav-collapse" title="Open/Close">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</div>
+<div class="nav-header-btn pin-nav-btn has-tooltip  js-nav-pin" data-container="body" data-placement="right" title="" data-original-title="Pin navigation">
+<span class="sr-only">Toggle navigation pinning</span>
+<i class="fa fa-fw fa-thumb-tack"></i>
+</div>
+</div>
+<ul class="nav nav-sidebar" tabindex="0" style="overflow: hidden; outline: none;">
+<li class="active home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/projects"><span>
+Projects
+</span>
+</a></li><li class=""><a title="Todos" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/todos"><span>
+Todos
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a class="dashboard-shortcuts-activity" title="Activity" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/activity"><span>
+Activity
+</span>
+</a></li><li class=""><a title="Groups" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/groups"><span>
+Groups
+</span>
+</a></li><li class=""><a title="Milestones" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/milestones"><span>
+Milestones
+</span>
+</a></li><li class=""><a title="Issues" class="dashboard-shortcuts-issues" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/issues?assignee_id=45"><span>
+Issues
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="dashboard-shortcuts-merge_requests" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/merge_requests?assignee_id=45"><span>
+Merge Requests
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Snippets" href="https://alm-dev.rbro.rbg.cc/gitlab/dashboard/snippets"><span>
+Snippets
+</span>
+</a></li><li class=""><a title="Help" href="https://alm-dev.rbro.rbg.cc/gitlab/help"><span>
+Help
+</span>
+</a></li><li class=""><a title="Profile Settings" data-placement="bottom" href="https://alm-dev.rbro.rbg.cc/gitlab/profile"><span>
+Profile Settings
+</span>
+</a></li></ul>
+
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 50px; left: 213px; height: 899px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 1000; top: 942px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="controls">
+<div class="dropdown project-settings-dropdown">
+<a class="dropdown-new btn btn-default" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#" id="project-settings-button">
+<i class="fa fa-cog"></i>
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-align-right">
+<li class=""><a title="Members" class="team-tab tab" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/project_members"><span>
+Members
+</span>
+</a></li>
+</ul>
+</div>
+</div>
+<div class="nav-control scrolling-tabs-container">
+<div class="fade-left">
+<i class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs">
+<li class="home active"><a title="Project" class="shortcuts-project" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws"><span>
+Project
+</span>
+</a></li><li class=""><a title="Activity" class="shortcuts-project-activity" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/activity"><span>
+Activity
+</span>
+</a></li><li class=""><a title="Repository" class="shortcuts-tree" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class=""><a title="Graphs" class="shortcuts-graphs" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/graphs/master"><span>
+Graphs
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/issues"><span>
+Issues
+<span class="badge count issue_counter">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter">0</span>
+</span>
+</a></li><li class=""><a title="Wiki" class="shortcuts-wiki" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/network/master">Network
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Builds" class="shortcuts-builds" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/builds">Builds
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="content-wrapper page-with-layout-nav">
+
+
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+
+
+<div class=" ">
+<div class="content">
+
+<div class="project-home-panel text-center">
+<div class="container-fluid container-limited">
+<div class="project-avatar avatar s70 avatar-tile identicon" style="background-color: #EEEEEE; color: #555">P</div>
+<h1 class="project-title">
+payments-ws
+<span class="visibility-icon has-tooltip" data-container="body" title="Private - Project access must be granted explicitly to each user.">
+<i class="fa fa-lock"></i>
+</span>
+</h1>
+<div class="project-home-desc">
+<p dir="auto">Payments BFF &amp; WS used in Athena scope (at least)</p>
+</div>
+<div class="project-repo-buttons project-action-buttons">
+<div class="count-buttons">
+<a class="btn star-btn toggle-star has-tooltip" title="Star project" data-remote="true" rel="nofollow" data-method="post" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/toggle_star"><i class="fa fa-star-o"></i>
+<span>Star</span>
+</a><div class="count-with-arrow">
+<span class="arrow"></span>
+<span class="count star-count">
+0
+</span>
+</div>
+
+<a title="Fork project" class="btn has-tooltip" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/forks/new"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="5 0 30 40"><path fill="#7E7E7E" fill-rule="evenodd" d="M22 29.535V22.72c4.19-1.21 7.4-5.917 7.4-5.917.34-.446.6-1.247.6-1.795v-4.543C31.196 9.773 32 8.48 32 7c0-2.21-1.79-4-4-4s-4 1.79-4 4c0 1.48.804 2.773 2 3.465v4.243c0 .17-.094.39-.21.502 0 0-1.253 1.203-1.84 1.742C22.5 18.277 21.12 19 20.09 19c-1.042 0-2.473-.74-3.977-2.086-.61-.546-1.746-1.574-1.746-1.574-.2-.182-.367-.555-.367-.83v-4.045C15.196 9.773 16 8.48 16 7c0-2.21-1.79-4-4-4S8 4.79 8 7c0 1.48.804 2.773 2 3.465v4.543c0 .537.274 1.345.61 1.78 0 0 3.25 4.59 7.39 5.88v6.867c-1.196.692-2 1.984-2 3.465 0 2.21 1.79 4 4 4s4-1.79 4-4c0-1.48-.804-2.773-2-3.465zM14 7c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm16 0c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-8 26c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2z"></path></svg>
+
+<span>Fork</span>
+</a><div class="count-with-arrow">
+<span class="arrow"></span>
+<a title="Forks" class="count has-tooltip" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/forks">0
+</a></div>
+
+</div>
+<div class="project-clone-holder">
+<div class="git-clone-holder input-group">
+<div class="input-group-btn">
+<div class="clone-dropdown-btn btn btn-static">
+<span>
+<span class="http-selector" data-html="true" data-placement="bottom" data-container="body" data-title="Set a password on your account&lt;br&gt;to pull or push via HTTPS">HTTPS</span>
+</span>
+</div>
+</div>
+<input type="text" name="project_clone" id="project_clone" value="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws.git" class="js-select-on-focus form-control" readonly="readonly">
+<div class="input-group-btn">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-target="#project_clone" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+</div>
+</div>
+<script>
+  $('ul.clone-options-dropdown a').on('click',function(e){
+    e.preventDefault();
+    var $this = $(this);
+    $('a.clone-dropdown-btn span').text($this.text());
+    $('#project_clone').val($this.attr('href'));
+  });
+</script>
+
+</div>
+</div>
+</div>
+</div>
+
+<nav class="container-fluid container-limited project-stats">
+<ul class="nav">
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/tree/master">Files (1.3 MB)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/commits/master">Commits (343)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/branches">Branches (6)
+</a></li>
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/tags">Tags (0)
+</a></li>
+<li class="project-repo-buttons-right">
+<div class="project-repo-buttons project-right-buttons">
+
+
+<div class="btn-group project-repo-btn-group">
+<span class="hidden-xs hidden-sm download-button">
+<div class="dropdown inline">
+<button class="btn" data-toggle="dropdown">
+<i class="fa fa-download"></i>
+<i class="fa fa-caret-down"></i>
+<span class="sr-only">
+Select Archive Format
+</span>
+</button>
+<ul class="dropdown-menu dropdown-menu-align-right" role="menu">
+<li class="dropdown-header">Source code</li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/repository/archive.zip?ref=master"><i class="fa fa-download"></i>
+<span>Download zip</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/repository/archive.tar.gz?ref=master"><i class="fa fa-download"></i>
+<span>Download tar.gz</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/repository/archive.tar.bz2?ref=master"><i class="fa fa-download"></i>
+<span>Download tar.bz2</span>
+</a></li>
+<li>
+<a rel="nofollow" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/repository/archive.tar?ref=master"><i class="fa fa-download"></i>
+<span>Download tar</span>
+</a></li>
+</ul>
+</div>
+</span>
+
+<div class="dropdown inline project-dropdown">
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#">
+<i class="fa fa-plus"></i>
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-align-right project-home-dropdown">
+<li>
+<a href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/issues/new"><i class="fa fa-exclamation-circle fa-fw"></i>
+New issue
+</a></li>
+<li class="divider"></li>
+<li>
+<a rel="nofollow" data-method="post" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/forks?continue%5Bnotice%5D=You%27re+not+allowed+to+make+changes+to+this+project+directly.+A+fork+of+this+project+has+been+created+that+you+can+make+changes+in%2C+so+you+can+submit+a+merge+request.&amp;continue%5Bnotice_now%5D=You%27re+not+allowed+to+make+changes+to+this+project+directly.+A+fork+of+this+project+is+being+created+that+you+can+make+changes+in%2C+so+you+can+submit+a+merge+request.&amp;continue%5Bto%5D=%2Fgitlab%2Fathena_dev%2Fpayments-ws%2Fnew%2Fmaster&amp;namespace_key=48"><i class="fa fa-file fa-fw"></i>
+New file
+</a></li>
+</ul>
+</div>
+
+</div>
+<div class="dropdown notification-dropdown pull-right">
+<form class="inline notification-form" id="new_notification_setting" action="https://alm-dev.rbro.rbg.cc/gitlab/notification_settings" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="project_id" id="project_id" value="48">
+<input class="notification_setting_level" type="hidden" value="global" name="notification_setting[level]" id="notification_setting_level">
+<div class="js-notification-toggle-btns">
+<div class="">
+<button class="dropdown-new btn btn-default notifications-btn" data-target="dropdown-45-48-Project" data-toggle="dropdown" id="notifications-button" type="button">
+<i class="fa fa-bell js-notification-loading"></i>
+Global
+<i class="fa fa-caret-down"></i>
+</button>
+<ul class="dropdown-45-48-Project dropdown-menu dropdown-menu-align-right dropdown-menu-large dropdown-menu-no-wrap dropdown-menu-selectable" role="menu">
+<li role="menuitem"><a class="update-notification is-active" data-notification-level="global" data-notification-title="Global" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#"><strong class="dropdown-menu-inner-title">Global</strong><span class="dropdown-menu-inner-content">Use your global notification setting</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="watch" data-notification-title="Watch" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#"><strong class="dropdown-menu-inner-title">Watch</strong><span class="dropdown-menu-inner-content">You will receive notifications for any activity</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="mention" data-notification-title="On mention" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#"><strong class="dropdown-menu-inner-title">On mention</strong><span class="dropdown-menu-inner-content">You will receive notifications only for comments in which you were @mentioned</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="participating" data-notification-title="Participate" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#"><strong class="dropdown-menu-inner-title">Participate</strong><span class="dropdown-menu-inner-content">You will only receive notifications for threads you have participated in</span></a></li>
+<li role="menuitem"><a class="update-notification " data-notification-level="disabled" data-notification-title="Disabled" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#"><strong class="dropdown-menu-inner-title">Disabled</strong><span class="dropdown-menu-inner-content">You will not get any notifications via email</span></a></li>
+<li class="divider"></li>
+<li>
+<a class="update-notification" data-notification-level="custom" data-notification-title="Custom" data-target="#modal-45-48-Project" data-toggle="modal" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#" role="button">
+<strong class="dropdown-menu-inner-title">Custom</strong>
+<span class="dropdown-menu-inner-content">You will only receive notifications for the events you choose</span>
+</a>
+</li>
+</ul>
+
+</div>
+</div>
+</form></div>
+
+</div>
+</li>
+</ul>
+</nav>
+<div class="container-fluid container-limited project-last-commit">
+<a class="commit_short_id" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/commit/de8e4e2da7f5ef31ac8db3d3e60b3a9348806002">de8e4e2d</a>
+<a class="commit-row-message" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws/commit/de8e4e2da7f5ef31ac8db3d3e60b3a9348806002">added channel subtype from business context</a>
+·
+<time class="js-timeago" datetime="2017-10-31T09:23:29Z" title="" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Oct 31, 2017 11:23am GMT+0200">about an hour ago</time> by
+<a class="commit-author-link has-tooltip" title="dragos-sorin.fratila@raiffeisen.ro" href="https://alm-dev.rbro.rbg.cc/gitlab/c026fratd"><span class="commit-author-name">Dragos-Sorin Fratila</span></a>
+
+</div>
+<div class="container-fluid container-limited">
+<div class="project-show-readme">
+<article class="readme-holder">
+<div class="pull-right">
+</div>
+<div class="file-content wiki">
+<h1 dir="auto">
+<a id="payments-ws" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#payments-ws" aria-hidden="true"></a>Payments WS</h1>
+
+<p dir="auto">This service deals with operations involving payments:</p>
+
+<h3 dir="auto">
+<a id="1-active-payments-get-active-paymentlist" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#1-active-payments-get-active-paymentlist" aria-hidden="true"></a>1. Active payments: GET /active-payment/list</h3>
+
+<h3 dir="auto">
+<a id="request" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120000020161108114357350000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"winter is coming"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"a"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"b"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12142690"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO36RZBR0000060012142690"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO26BUCU1111030512119EUR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"repetition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"nextPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"beneficiaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOHN SNOW"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RECURRENT_FUTURE"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">269.25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000007115415"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"616"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">10005.81</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"nextPaymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-13"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOAN"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="2-post-payment-post-post-payment" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#2-post-payment-post-post-payment" aria-hidden="true"></a>2. Post payment: POST /post-payment</h3>
+
+<h3 dir="auto">
+<a id="request-1" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-1" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<h4 dir="auto">
+<a id="transfer-intre-contur-proprii-0003" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#transfer-intre-contur-proprii-0003" aria-hidden="true"></a>Transfer intre contur proprii - 0003</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"TRANSFER INTRE CONTURI"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-14"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO40RZBR0000060011185325"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 dir="auto">
+<a id="schimb-valutar-0110" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#schimb-valutar-0110" aria-hidden="true"></a>Schimb valutar - 0110</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0110"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SCH VALUTAR"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO36RZBR0000060012142690"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 dir="auto">
+<a id="intrabancara-0009" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#intrabancara-0009" aria-hidden="true"></a>Intrabancara - 0009</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0009"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"INTRABANK"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO89RZBR0000060018034486"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 dir="auto">
+<a id="interbancara-ron-0111" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#interbancara-ron-0111" aria-hidden="true"></a>Interbancara RON - 0111</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"INTERBANK ING"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO50INGB0001008189548910"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gigi"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 dir="auto">
+<a id="interbancara-valuta-0137" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#interbancara-valuta-0137" aria-hidden="true"></a>Interbancara valuta - 0137</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"FCY INTERBANK"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"feeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HU99588899993456678912346789"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gigi"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payeeAdditionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gigi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adresa"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0137"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"FCY INTERBANK"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-16"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456678912346789"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gigi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bank"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"bicCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AARBDE5W100"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payeeAdditionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gigi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adresa"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"bankToBankInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"d1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"d2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"d3"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 dir="auto">
+<a id="taxe-0300" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#taxe-0300" aria-hidden="true"></a>Taxe - 0300</h4>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0300"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"TAX PAYMENT"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-23"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO95RZBR0000060017443357"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"taxDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"cnp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1840404393612"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taxCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21.A.16.03.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"evidenceNr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901234567890123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taxDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taxe si tarife pentru eliberarea de licente si autorizatii de functionare"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taxBeneficiaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comuna Galda de Jos"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taxBeneficiaryFiscalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4561928"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="response-1" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-1" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"pendingActionIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PA-ID-12345"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"groupId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PA-ID-12345"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="3-payment-status-get-pending-actionstatusid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#3-payment-status-get-pending-actionstatusid" aria-hidden="true"></a>3. Payment status: GET /pending-action/status/{id}</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2052120-2017-06-28-111011-932"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAILED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"errorCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"WBI-1234"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="4-delete-active-payment-delete-active-payment" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#4-delete-active-payment-delete-active-payment" aria-hidden="true"></a>4. Delete active payment: DELETE /active-payment</h3>
+
+<h3 dir="auto">
+<a id="request-2" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-2" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"activePayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120-2017-06-29-131151-021"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120-2017-06-29-130911-439"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120-2017-06-29-131058-156"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="response-2" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-2" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"pendingActionIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PA-ID-1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PA-ID-2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PA-ID-3"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"groupId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PA-ID-1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="5-classify-payment-post-classify-payment" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#5-classify-payment-post-classify-payment" aria-hidden="true"></a>5. Classify payment: POST /classify-payment</h3>
+
+<h3 dir="auto">
+<a id="request-3" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-3" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO50INGB0001008189548910"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"cif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"cif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="response-3" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-3" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"classification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<ul dir="auto">
+<li>status 204: if provided payment details cannot be classified</li>
+</ul>
+
+<h3 dir="auto">
+<a id="6-payment-currencies-get-currencies" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#6-payment-currencies-get-currencies" aria-hidden="true"></a>6. Payment currencies: GET /currencies</h3>
+
+<h3 dir="auto">
+<a id="response-4" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-4" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="s2">"EUR"</span><span class="p">,</span><span class="s2">"USD"</span><span class="p">,</span><span class="s2">"GBP"</span><span class="p">,</span><span class="s2">"AUD"</span><span class="p">,</span><span class="s2">"CAD"</span><span class="p">,</span><span class="s2">"CHF"</span><span class="p">,</span><span class="s2">"DKK"</span><span class="p">,</span><span class="s2">"HUF"</span><span class="p">,</span><span class="s2">"JPY"</span><span class="p">,</span><span class="s2">"NOK"</span><span class="p">,</span><span class="s2">"PLN"</span><span class="p">,</span><span class="s2">"RON"</span><span class="p">,</span><span class="s2">"SEK"</span><span class="p">,</span><span class="s2">"BGN"</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="7-search-get-searchquerysearch-string" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#7-search-get-searchquerysearch-string" aria-hidden="true"></a>7. Search: GET /search?query={search string}</h3>
+
+<h3 dir="auto">
+<a id="response-5" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-5" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"topBeneficiaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO05RZBR0000061232132133"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gigi Gigica"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">//...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"matchesTaxTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"matchesMobileTopupTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"matchesWuSendTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"matchesWuReceiveTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="8-validate-bic-get-validate-bicbic-code" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#8-validate-bic-get-validate-bicbic-code" aria-hidden="true"></a>8. Validate BIC: GET /validate-bic/{BIC CODE}</h3>
+
+<h3 dir="auto">
+<a id="response-6" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-6" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"requiresIban"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="9-western-union-input-page-prerequisites-get-western-unionprerequisites" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#9-western-union-input-page-prerequisites-get-western-unionprerequisites" aria-hidden="true"></a>9. Western union input page prerequisites: GET /western-union/prerequisites</h3>
+
+<h3 dir="auto">
+<a id="response-7" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-7" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"currencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leu romanesc"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#.###,##"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Euro"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#,###.##"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afganistan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AF"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afganistan Armata SUA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zimbabwe"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZW"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"userPersonalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Domicile Address"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUCURESTI"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"village"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"streetType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alee"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"streetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ILIOARA"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"streetNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M30A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"buildingEntryNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"floor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"apartamentNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"032134"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"flatAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/30/2014"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"pooffice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"pobox"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213063048"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phoneType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"723749265"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phoneType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213064047"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phoneType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Work"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"primaryPhone"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"723749265"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"condrea_v@yahoo.com"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"birthInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PANCIU"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04/04/1984"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"identityCards"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"seriesNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RT730770"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDOld/New"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03/26/2020"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"idIssuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"cnpCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1840404393612"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALENTIN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONDREA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"receiveMoneyRestrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"133"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"740"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"741"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"742"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="10-western-union-confirm-receive-money-post-western-unionreceive-money" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#10-western-union-confirm-receive-money-post-western-unionreceive-money" aria-hidden="true"></a>10. Western Union confirm receive money: POST /western-union/receive-money</h3>
+
+<h3 dir="auto">
+<a id="request-4" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-4" aria-hidden="true"></a>Request:</h3>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"MTCN"</span><span class="p">:</span><span class="s2">"1200538130"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expectedAmount"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expectedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"originationCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18058607"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="response-8" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-8" aria-hidden="true"></a>Response:</h3>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"destinationAmountRate"</span><span class="p">:</span><span class="s2">"4.5598"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expectedPayoutAmount"</span><span class="p">:</span><span class="s2">"0.77"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"actualPayoutAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.77"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="11-get-taxes-prerequisites-get-taxes-prerequisites" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#11-get-taxes-prerequisites-get-taxes-prerequisites" aria-hidden="true"></a>11. Get Taxes prerequisites: GET /taxes-prerequisites</h3>
+
+<h3 dir="auto">
+<a id="response-9" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-9" aria-hidden="true"></a>Response:</h3>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.A.03.03.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Impozit pe venituri din cedarea folosintei bunurilor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Impozit chirii"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"beneficiaryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STATE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"evidenceNrAvailable"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"iconUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://ro-dev.rbro.rbg.cc:8080/portalserver/content/atom/contentRepository/content?id=0199d6d8-18f3-43f1-bf8a-1b490061f13d&amp;_=1504091762612"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">//...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"taxesAccountIban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO95RZBR0000060017443357"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"133"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+      </span><span class="err">//...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"allow"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="12-get-taxes-list-get-searchtaxes-beneficiariestypebeneficiarytypequerybeneficiaryquery" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#12-get-taxes-list-get-searchtaxes-beneficiariestypebeneficiarytypequerybeneficiaryquery" aria-hidden="true"></a>12. Get Taxes list: GET /search/taxes-beneficiaries?type={beneficiaryType}&amp;query={beneficiaryQuery}</h3>
+
+<h3 dir="auto">
+<a id="response-10" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-10" aria-hidden="true"></a>Response:</h3>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">7097998</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOWN_HALL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comuna Adamclisi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Judet Constanta"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4436844</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOWN_HALL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comuna Adamus"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Judet Mures"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4327480</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOWN_HALL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comuna Adancata"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Judet Suceava"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">//...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="13-active-payments-instances-get-active-paymentactivepaymentidinstancesstartfromstartfrommaxrowsmaxrows" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#13-active-payments-instances-get-active-paymentactivepaymentidinstancesstartfromstartfrommaxrowsmaxrows" aria-hidden="true"></a>13. Active payments Instances: GET /active-payment/{activePaymentId}/instances?startFrom={startFrom}&amp;maxRows={maxRows}</h3>
+
+<h3 dir="auto">
+<a id="request-5" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-5" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-11" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-11" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-27 06:30:07"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-27 06:30:12"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-24 06:30:09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-21 15:34:09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">//...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="14-get-quick-payments-get-v1quick-paymentspaymentsincludebalancefalse" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#14-get-quick-payments-get-v1quick-paymentspaymentsincludebalancefalse" aria-hidden="true"></a>14. Get quick payments: GET /v1/quick-payments/payments?includeBalance=false</h3>
+
+<h3 dir="auto">
+<a id="request-6" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-6" aria-hidden="true"></a>Request:</h3>
+
+<ul dir="auto">
+<li>includeBalance = if true, include outstanding balance info and filter for the quick payments with amount &gt; 0</li>
+</ul>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-12" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-12" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"supplierAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3074933"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANA DEJU"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0139334601"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payeeAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5540642"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBD-url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orange-abonament/RON 3074933"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20171018143508524000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-18"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"balanceInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORO"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"supplierAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3074933"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANA DEJU"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0277382289"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"payeeAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5540642"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"logoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBD-url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orange-abonament/RON 3074933"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20171018143508524000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-18"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"balanceInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORO"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">155.45</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="15-delete-quick-payments-delete-v1quick-paymentsdelete" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#15-delete-quick-payments-delete-v1quick-paymentsdelete" aria-hidden="true"></a>15. Delete quick payments: DELETE /v1/quick-payments/delete</h3>
+
+<h3 dir="auto">
+<a id="request-7" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-7" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Request Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"stp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"20151120161551474000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"userId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-13" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-13" aria-hidden="true"></a>Response:</h3>
+
+<ul dir="auto">
+<li>status 200: quick payment deleted</li>
+<li>status 422: quick payment could not be deleted</li>
+</ul>
+
+<h3 dir="auto">
+<a id="16-get-quick-payment-available-suppliers-get-v1quick-paymentsavailable-suppliers" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#16-get-quick-payment-available-suppliers-get-v1quick-paymentsavailable-suppliers" aria-hidden="true"></a>16. Get quick payment available suppliers: GET /v1/quick-payments/available-suppliers</h3>
+
+<h3 dir="auto">
+<a id="request-8" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-8" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Headers:</strong></p>
+
+<ul dir="auto">
+<li>Content-Type: application/json</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-14" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-14" aria-hidden="true"></a>Response:</h3>
+
+<p dir="auto"><strong>Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gdf Suez Energy-bill payment/RON 10660361"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"841039"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10660361"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orange-mobile phone bill/RON 3074933"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1029385"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3074933"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENGIE ROMANIA - facturi gaze/RON 10660361"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"841039"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10660361"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Orange-abonament/RON 3074933"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1029385"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3074933"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vodafone-abonament/RON 2002020"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"815334"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2002020"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENGIE ROMANIA - facturi electricitate/RON 11419498"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"841039"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11419498"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="17-get-payment-details-by-pending-action-id-get-internalv1post-paymentdetails-by-pending-actionpendingactionid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#17-get-payment-details-by-pending-action-id-get-internalv1post-paymentdetails-by-pending-actionpendingactionid" aria-hidden="true"></a>17. Get payment details by pending action id: GET /internal/v1/post-payment/details-by-pending-action/{pendingActionId}</h3>
+
+<h3 dir="auto">
+<a id="request-9" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-9" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"basic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"paymentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-14"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"actionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0003"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"TRANSFER INTRE CONTURI9"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0005161502"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO63RZBR0000060005161502"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"547"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0011185325"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO40RZBR0000060011185325"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"cif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALENTIN CONDREA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"cif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALENTIN CONDREA"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="18-quick-payments-validate-client-code-get-v1quick-paymentsvalidateclientcodevalidator" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#18-quick-payments-validate-client-code-get-v1quick-paymentsvalidateclientcodevalidator" aria-hidden="true"></a>18. Quick payments - validate client code: GET /v1/quick-payments/validate/{clientCode}/{validator}</h3>
+
+<h3 dir="auto">
+<a id="request-10" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-10" aria-hidden="true"></a>Request:</h3>
+
+<ul dir="auto">
+<li>validator = ORANGE/VODAFONE/ENGIE</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-15" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-15" aria-hidden="true"></a>Response:</h3>
+
+<ul dir="auto">
+<li>status 200: client code valid</li>
+<li>status 422: client code invalid</li>
+</ul>
+
+<h3 dir="auto">
+<a id="19-generate-cyber-receipt-by-payment-action-id-get-v1cyber-receiptgeneratependingactionid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#19-generate-cyber-receipt-by-payment-action-id-get-v1cyber-receiptgeneratependingactionid" aria-hidden="true"></a>19. Generate cyber receipt by payment action id: GET /v1/cyber-receipt/generate/{pendingActionId}</h3>
+
+<h3 dir="auto">
+<a id="request-11" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-11" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120-IB0017101328392500-1508136548424"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="20-generate-cyber-receipt-by-payment-wbi-id-get-v1cyber-receiptgenerate-wbi-idwbiid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#20-generate-cyber-receipt-by-payment-wbi-id-get-v1cyber-receiptgenerate-wbi-idwbiid" aria-hidden="true"></a>20. Generate cyber receipt by payment wbi id: GET /v1/cyber-receipt/generate-wbi-id//{wbiId}</h3>
+
+<h3 dir="auto">
+<a id="request-12" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-12" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002052120-IB0017101328392500-1508136548424"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="21-generate-cyber-receipt-for-provided-document-content-internalv1cyber-receiptgeneratewith-content" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#21-generate-cyber-receipt-for-provided-document-content-internalv1cyber-receiptgeneratewith-content" aria-hidden="true"></a>21. Generate cyber receipt for provided document content /internal/v1/cyber-receipt/generate/with-content</h3>
+
+<h3 dir="auto">
+<a id="request-13" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-13" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"documentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;your specific receipt document id&gt;&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+    </span><span class="err">//other</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">values</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 dir="auto">
+<a id="22-get-cyber-receipt-generate-status-v1cyber-receiptstatusdocumentid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#22-get-cyber-receipt-generate-status-v1cyber-receiptstatusdocumentid" aria-hidden="true"></a>22. Get cyber receipt generate status /v1/cyber-receipt/status/{documentId}</h3>
+
+<h3 dir="auto">
+<a id="request-14" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-14" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p dir="auto">Obs: possible statuses are: UNAVAILABLE, ERROR, COMPLETED</p>
+
+<h3 dir="auto">
+<a id="23-download-cyber-receipt-document-v1cyber-receiptdownloaddocumentid" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#23-download-cyber-receipt-document-v1cyber-receiptdownloaddocumentid" aria-hidden="true"></a>23. Download cyber receipt document /v1/cyber-receipt/download/{documentId}</h3>
+
+<h3 dir="auto">
+<a id="request-15" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-15" aria-hidden="true"></a>Request:</h3>
+
+<p dir="auto"><strong>Response Body:</strong></p>
+
+<ul dir="auto">
+<li>status 200: file download.</li>
+<li>status 404: if no document for provided id is available</li>
+</ul>
+
+<h3 dir="auto">
+<a id="24-add-quick-payment-post-v1quick-paymentsnew" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#24-add-quick-payment-post-v1quick-paymentsnew" aria-hidden="true"></a>24. Add quick payment: POST /v1/quick-payments/new</h3>
+
+<h3 dir="auto">
+<a id="request-16" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#request-16" aria-hidden="true"></a>Request:</h3>
+
+<pre class="code highlight js-syntax-highlight json white" v-pre="true"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0012175368"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplierName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Orange-abonament/RON 3074933"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplierCif"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"1029385"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clientName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Test test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clientCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0139334601"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplierType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ORANGE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<ul dir="auto">
+<li>supplierType = ORANGE/VODAFONE/ENGIE</li>
+</ul>
+
+<h3 dir="auto">
+<a id="response-16" class="anchor" href="https://alm-dev.rbro.rbg.cc/gitlab/athena_dev/payments-ws#response-16" aria-hidden="true"></a>Response:</h3>
+
+<ul dir="auto">
+<li>status 200: successfully added quick payment</li>
+<li>status 4xx: quick payment could not be saved</li>
+</ul>
+</div>
+</article>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div aria="{:labelledby=&gt;&quot;custom-notifications-title&quot;}" class="modal fade" id="modal-45-48-Project" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button aria="{:label=&gt;&quot;close&quot;}" class="close" data-dismiss="modal" type="button">
+<span aria="{:hidden=&gt;&quot;true&quot;}">×</span>
+</button>
+<h4 class="modal-title" id="custom-notifications-title">
+Custom notification events
+</h4>
+</div>
+<div class="modal-body">
+<div class="container-fluid">
+<form class="custom-notifications-form" id="new_notification_setting" action="https://alm-dev.rbro.rbg.cc/gitlab/notification_settings" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="rhsvaeDU1zFskLTk+cleDstd294q3hi8RynSjMCQPXB8INKeYkX6SxMiOpbrkqek4ro+q0IEmbuKVQZlnGsN3Q=="><input type="hidden" name="project_id" id="project_id" value="48">
+<div class="row">
+<div class="col-lg-4">
+<h4 class="prepend-top-0">
+Notification events
+</h4>
+<p>
+Custom notification levels are the same as participating levels. With custom notification levels you will also receive notifications for select events. To find out more, check out
+<a href="http://docs.gitlab.com/ce/workflow/notifications.html" target="_blank">notification emails</a>.
+</p>
+</div>
+<div class="col-lg-8">
+<div class="form-group">
+<div class="checkbox prepend-top-0">
+<label for="modal-45-48-Project_notification_setting[new_note]">
+<input name="notification_setting[new_note]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[new_note]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_note]">
+<strong>
+New note
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[new_issue]">
+<input name="notification_setting[new_issue]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[new_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_issue]">
+<strong>
+New issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[reopen_issue]">
+<input name="notification_setting[reopen_issue]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[reopen_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reopen_issue]">
+<strong>
+Reopen issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[close_issue]">
+<input name="notification_setting[close_issue]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[close_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[close_issue]">
+<strong>
+Close issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[reassign_issue]">
+<input name="notification_setting[reassign_issue]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[reassign_issue]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reassign_issue]">
+<strong>
+Reassign issue
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[new_merge_request]">
+<input name="notification_setting[new_merge_request]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[new_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[new_merge_request]">
+<strong>
+New merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[reopen_merge_request]">
+<input name="notification_setting[reopen_merge_request]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[reopen_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reopen_merge_request]">
+<strong>
+Reopen merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[close_merge_request]">
+<input name="notification_setting[close_merge_request]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[close_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[close_merge_request]">
+<strong>
+Close merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[reassign_merge_request]">
+<input name="notification_setting[reassign_merge_request]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[reassign_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[reassign_merge_request]">
+<strong>
+Reassign merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+<div class="form-group">
+<div class="checkbox">
+<label for="modal-45-48-Project_notification_setting[merge_merge_request]">
+<input name="notification_setting[merge_merge_request]" type="hidden" value="0"><input id="modal-45-48-Project_notification_setting[merge_merge_request]" class="js-custom-notification-event" type="checkbox" value="1" name="notification_setting[merge_merge_request]">
+<strong>
+Merge merge request
+<i class="fa fa-spinner fa-spin custom-notification-event-loading"></i>
+</strong>
+</label>
+</div>
+</div>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div></body></html>
