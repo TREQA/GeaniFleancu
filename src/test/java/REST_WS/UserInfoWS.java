@@ -21,9 +21,9 @@ public class UserInfoWS extends TestBase {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
 
-            Log4Test.info("Environment used for UserInfo is: " + env);
+            Log4Test.info("Environment used for UserInfo is: " + ENV);
 
-            userInfoGETResponse = wsGET(userInfoWSpath, loginWSResponse.cookies());
+            userInfoGETResponse = wsGET(USER_INFO_WS_PATH, loginWSResponse.cookies());
 
         } catch (Exception userInfoGetException) {
             Log4Test.test("userInfoGet error");

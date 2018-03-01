@@ -23,9 +23,9 @@ public class LoginWS extends TestBase {
 
         //Set login body json
         Map<String, String> loginBody = new HashMap<>();
-        loginBody.put("username", String.valueOf(loginUsername));
-        loginBody.put("password", loginPassword);
-        loginBody.put("channelSubtype", channelSubtype);
+        loginBody.put("username", String.valueOf(LOGIN_USERNAME));
+        loginBody.put("password", LOGIN_PASSWORD);
+        loginBody.put("CHANNEL_SUBTYPE", String.valueOf(CHANNEL_SUBTYPE));
 
         return loginBody;
     }
@@ -37,16 +37,16 @@ public class LoginWS extends TestBase {
      */
     public void loginWSResponse() {
 
-        Log4Test.info("Environment used for LoginWS is: " + env);
+        Log4Test.info("Environment used for LoginWS is: " + ENV);
         try {
-            loginWSResponse = wsPOSTnoAuth(appJSON, loginWSbody(), loginWSpath);
+            loginWSResponse = wsPOSTnoAuth(APP_JSON, loginWSbody(), LOGIN_WS_PATH);
             if (loginWSResponse.statusCode() == 200) {
-                Log4Test.info("Login Success with username and password: " + loginUsername + " / " + loginPassword);
+                Log4Test.info("Login Success with username and password: " + LOGIN_USERNAME + " / " + LOGIN_PASSWORD);
 
                 /*
                  * Get server time response
                  */
-                Response wsServerTimeResponse = wsGET(wsTime, loginWSResponse.cookies());
+                Response wsServerTimeResponse = wsGET(WS_TIME, loginWSResponse.cookies());
                 Log4Test.info("WS server time is: " + wsServerTimeResponse.path("timestamp"));
             }
         } catch (Exception loginWSException) {
@@ -62,9 +62,9 @@ public class LoginWS extends TestBase {
 
         //Set login body json
         Map<String, String> loginBody_wrongUsername = new HashMap<>();
-        loginBody_wrongUsername.put("username", loginUsername + "1");
-        loginBody_wrongUsername.put("password", loginPassword);
-        loginBody_wrongUsername.put("channelSubtype", channelSubtype);
+        loginBody_wrongUsername.put("username", LOGIN_USERNAME + "1");
+        loginBody_wrongUsername.put("password", LOGIN_PASSWORD);
+        loginBody_wrongUsername.put("CHANNEL_SUBTYPE", String.valueOf(CHANNEL_SUBTYPE));
 
         return loginBody_wrongUsername;
     }
@@ -76,7 +76,7 @@ public class LoginWS extends TestBase {
 
         try {
 
-            wsPOSTnoAuth(appJSON, loginWSbody_wrongUsername(), loginWSpath);
+            wsPOSTnoAuth(APP_JSON, loginWSbody_wrongUsername(), LOGIN_WS_PATH);
 
         } catch (Exception loginWSException_wrong) {
             Log4Test.test("loginWSResponse error");

@@ -22,8 +22,8 @@ public class UserProfileWS extends TestBase {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
 
-            Log4Test.info("Environment used for UserInfo avatar upload is: " + env);
-            userProfileAvatarUploadResponse = wsPOSTmultiPartOnlyFile(multiPart, userProfileAvatarUloadWSpath, loginWSResponse.cookies(),
+            Log4Test.info("Environment used for UserInfo avatar upload is: " + ENV);
+            userProfileAvatarUploadResponse = wsPOSTmultiPartOnlyFile(MULTI_PART, USER_PROFILE_AVATAR_UPLOAD_WS_PATH, loginWSResponse.cookies(),
                     "picture", filePath, mimeType);
 
         } catch (Exception userProfileGetException) {
@@ -42,8 +42,8 @@ public class UserProfileWS extends TestBase {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
 
-            Log4Test.info("Environment used for UserInfo is: " + env);
-            userProfileGETResponse = wsGET(userProfileWSpath, loginWSResponse.cookies());
+            Log4Test.info("Environment used for UserInfo is: " + ENV);
+            userProfileGETResponse = wsGET(USER_PROFILE_WS_PATH, loginWSResponse.cookies());
 
         } catch (Exception userProfileGetException) {
             Log4Test.test("userProfileGet error");

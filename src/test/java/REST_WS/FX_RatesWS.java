@@ -25,10 +25,10 @@ public class FX_RatesWS extends TestBase {
      */
     public static void fxRates_Print(String currency1, String Currency2) {
         //Print information
-        Log4Test.info(newline +
-                "PrimaryCurrency " + currency1 + newline +
-                "SecondaryCurrency " + Currency2 + newline +
-                "fxRate: " + fxRatesSellBuyResponse.path("fxRate") + newline +
+        Log4Test.info(NEW_LINE +
+                "PrimaryCurrency " + currency1 + NEW_LINE +
+                "SecondaryCurrency " + Currency2 + NEW_LINE +
+                "fxRate: " + fxRatesSellBuyResponse.path("fxRate") + NEW_LINE +
                 "multiplier: " + fxRatesSellBuyResponse.path("multiplier"));
     }
 
@@ -203,10 +203,10 @@ public class FX_RatesWS extends TestBase {
 
     public void fxRatesGETlist() {
 
-        Log4Test.info("Environment used for FX Rates is: " + env);
+        Log4Test.info("Environment used for FX Rates is: " + ENV);
         try {
 
-            fxRatesListResponse = wsGETnoAuth(fxRatsListWSpath);
+            fxRatesListResponse = wsGETnoAuth(FX_RATS_LIST_WS_PATH);
 
         } catch (Exception fxRatesListException) {
             Log4Test.error("fxRatesGETlist error");
@@ -222,7 +222,7 @@ public class FX_RatesWS extends TestBase {
      */
     public void fxRatesGETsell_buy(String wsPath, String currency1, String currency2) {
 
-        Log4Test.info("Environment used for FX Rates Sell is: " + env);
+        Log4Test.info("Environment used for FX Rates Sell is: " + ENV);
         try {
             if (currency1.equals(currency2)) {
                 throw new SkipException("Skipped because same currency");

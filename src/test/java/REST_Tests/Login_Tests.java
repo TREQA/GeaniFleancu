@@ -29,7 +29,7 @@ public class Login_Tests extends TestBase {
 
         try {
             //failing assertion
-            Log4Test.info("Starting assertions for the principal fields to not be null" + newline);
+            Log4Test.info("Starting assertions for the principal fields to not be null" + NEW_LINE);
             assertJsonKeyExistence(loginWSResponse, "user.id");
             assertJsonKeyExistence(loginWSResponse, "user.cnp");
             assertJsonKeyExistence(loginWSResponse, "user.primaryMobilePhone");
@@ -42,7 +42,7 @@ public class Login_Tests extends TestBase {
             softAssert.assertAll();
 
             //non failing assertions
-            Log4Test.info("Starting assertions to see if account list order and nicknames are null" + newline);
+            Log4Test.info("Starting assertions to see if account list order and nicknames are null" + NEW_LINE);
             try {
                 Assert.assertFalse(assertNotNull(loginWSResponse, "accountsListOrder"));
             } catch (AssertionError accountsListOrderAssertError) {
@@ -57,14 +57,14 @@ public class Login_Tests extends TestBase {
             loginWSResponse.prettyPeek();
             throw IllegalArgumentException;
         }
-        Log4Test.test("Assertion complete" + newline);
+        Log4Test.test("Assertion complete" + NEW_LINE);
 
     }
 
     /**
      * Tis test verify wong user name scenario
      */
-    @Test(groups = {"all", "login"})
+    @Test
     public void loginTests_2_wrongUsername() {
         LoginWS loginWSResponse_wrongUsername = new LoginWS();
         loginWSResponse_wrongUsername.loginWSResponse_wrongUsername();

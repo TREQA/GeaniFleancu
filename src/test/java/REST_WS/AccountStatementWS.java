@@ -24,7 +24,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Credit Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Credit Activity is: " + ENV + " and account ID is: " + accountId);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -49,7 +49,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Debit Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Debit Activity is: " + ENV + " and account ID is: " + accountId);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -65,7 +65,7 @@ public class AccountStatementWS extends TestBase {
      */
     public void accountStatementDownloadActivityReport_CreditWithFieldID(String wsPath, String accountId, String fileId) {
 
-        Log4Test.info("Environment used for Account Statement Credit Download Activity Report: " + env);
+        Log4Test.info("Environment used for Account Statement Credit Download Activity Report: " + ENV + " and account ID is: " + accountId);
 
         String accountStatementActivityParama =
                 "accountId=" + accountId + "&" +
@@ -89,7 +89,7 @@ public class AccountStatementWS extends TestBase {
      */
     public void accountStatementDownloadActivityReport_CreditWithoutFieldID(String wsPath, String accountId) {
 
-        Log4Test.info("Environment used for Account Statement Credit Download Activity Report: " + env);
+        Log4Test.info("Environment used for Account Statement Credit Download Activity Report: " + ENV + " and account ID is: " + accountId);
 
         String accountStatementActivityParama =
                 "accountId=" + accountId;
@@ -123,7 +123,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Debit Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Debit Activity is: " + ENV + " and account ID is: " + accountId);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -149,7 +149,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Debit Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Debit Activity is: " + ENV + " and account ID is: " + accountId);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -173,7 +173,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Debit Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Debit Activity is: " + ENV + " and account ID is: " + accountId);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -195,7 +195,7 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Loan Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Loan Activity is: " + ENV + " and account ID is: " + LOAN_ACCOUNT_ID);
 
             accountStatementResponse = wsGETwithParam(wsPath, loginWSResponse.cookies(), accountStatementActivityParama);
 
@@ -214,10 +214,10 @@ public class AccountStatementWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for Account Statement Loan Activity is: " + env);
+            Log4Test.info("Environment used for Account Statement Loan Activity is: " + ENV + " and account ID is: " + LOAN_ACCOUNT_ID);
             String loanFileWSpath = wsPath + documentID;
 
-            if (loanFileWSpath.contains(accountStatementLoanGraphicFileStatusWSpath)) {
+            if (loanFileWSpath.contains(ACCOUNT_STATEMENT_LOAN_GRAPHIC_FILE_STATUS_WS_PATH)) {
                 documentStatusCheckCounter(loanFileWSpath, loginWSResponse.cookies(), "status", documentID);
                 accountStatementResponse = wsGET(loanFileWSpath, loginWSResponse.cookies());
             } else {

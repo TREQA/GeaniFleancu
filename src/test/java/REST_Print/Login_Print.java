@@ -37,9 +37,9 @@ public class Login_Print extends TestBase {
         Log4Test.info("User branchName: " + loginWSResponse.path("branchName"));
         Log4Test.info("User has EMV?: " + loginWSResponse.path("hasEMV"));
         Log4Test.info("User tcUrl: " + loginWSResponse.path("tcUrl"));
-        Log4Test.info("User account groups list is: " + newline + loginWSResponseTest.loginWS_printAccountGroups(loginWSResponse));
-        Log4Test.info("User account nickname list is: " + newline + loginWSResponseTest.loginWS_printAccountNicknames(loginWSResponse));
-        Log4Test.info("User account list order is: " + newline + loginWSResponseTest.loginWS_printAccountListOrder(loginWSResponse));
+        Log4Test.info("User account groups list is: " + NEW_LINE + loginWSResponseTest.loginWS_printAccountGroups(loginWSResponse));
+        Log4Test.info("User account nickname list is: " + NEW_LINE + loginWSResponseTest.loginWS_printAccountNicknames(loginWSResponse));
+        Log4Test.info("User account list order is: " + NEW_LINE + loginWSResponseTest.loginWS_printAccountListOrder(loginWSResponse));
         Log4Test.info("Auth token: " + loginWSResponse.cookie("Authorization"));
         Log4Test.info("Auth PD-S-SESSION-ID: " + loginWSResponse.cookie("PD-S-SESSION-ID"));
         /*Log4Test.info("Response body: ");

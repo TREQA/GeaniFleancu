@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestSuite">
+    <test name="transactionsMatrix">
+
+        <groups>
+            <run>
+                <include name="transactionsMatrix"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="REST_Tests.Transactions_Tests"/>
+        </classes>
+
+        <!--packages>
+              <package name="REST_Print"/>
+              <package name="REST_Tests"/>
+          </packages-->
+
+    </test>
+</suite>

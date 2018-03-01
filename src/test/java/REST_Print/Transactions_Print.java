@@ -25,7 +25,7 @@ public class Transactions_Print extends TestBase {
      */
     @Test(groups = {"all", "transactions", "transactionsDate"})
     public void transactions_2_DateGET_custom() {
-        transactionsResponseTest.transactionsDateGET(accountID_custom, accountType_custom);
+        transactionsResponseTest.transactionsDateGET(ACCOUNT_ID_CUSTOM, ACCOUNT_TYPE_CUSTOM);
         transactionsResponse.prettyPrint();
     }
 

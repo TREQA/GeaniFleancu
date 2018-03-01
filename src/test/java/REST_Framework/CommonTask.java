@@ -2,6 +2,7 @@ package REST_Framework;
 
 import REST_Core.TestBase;
 import REST_utils.Log4Test;
+import com.jayway.jsonpath.internal.JsonFormatter;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 import org.testng.Assert;
@@ -27,9 +28,8 @@ public class CommonTask extends TestBase {
         try {
             wsGetResponse = given()
                     .urlEncodingEnabled(false)
-                    .header("Content-Type", appJSON)
+                    .header("Content-Type", APP_JSON)
                     .cookies(cookies)
-                    //.log().body()
                     //.log().all()
                     .log().path()
                     //.log().body()
@@ -44,7 +44,10 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsGetResponse.statusCode() != 200) {
+            if (wsGetResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsGetResponse.prettyPrint();
+            } else if (wsGetResponse.statusCode() != 200) {
                 Log4Test.error(baseURI + basePath + wsPath + " status not 200. Response is :");
                 wsGetResponse.prettyPrint();
                 fail();
@@ -68,10 +71,9 @@ public class CommonTask extends TestBase {
         try {
             wsGetResponse = given()
                     .urlEncodingEnabled(false)
-                    .header("Content-Type", appJSON)
+                    .header("Content-Type", APP_JSON)
                     .cookies(cookies)
                     .param(params)
-                    //.log().body()
                     //.log().headers()
                     //.log().all()
                     .log().path()
@@ -88,7 +90,10 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsGetResponse.statusCode() != 200) {
+            if (wsGetResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsGetResponse.prettyPrint();
+            } else if (wsGetResponse.statusCode() != 200) {
                 Log4Test.error(baseURI + basePath + wsPath + "?" + params + " status not 200. Response is :");
                 wsGetResponse.prettyPrint();
                 fail();
@@ -111,8 +116,7 @@ public class CommonTask extends TestBase {
         try {
             wsGetNoAuthResponse = given()
                     .urlEncodingEnabled(false)
-                    .header("Content-Type", appJSON)
-                    //.log().body()
+                    .header("Content-Type", APP_JSON)
                     //.log().all()
                     .log().path()
                     //.log().body()
@@ -127,7 +131,10 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsGetNoAuthResponse.statusCode() != 200) {
+            if (wsGetNoAuthResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsGetNoAuthResponse.prettyPrint();
+            } else if (wsGetNoAuthResponse.statusCode() != 200) {
                 Log4Test.error(baseURI + basePath + wsPath + " status not 200. Response is :");
                 wsGetNoAuthResponse.prettyPrint();
                 fail();
@@ -153,7 +160,6 @@ public class CommonTask extends TestBase {
                     .header("Content-Type", contentType)
                     .cookies(cookies)
                     .body(wsPostRequestBody)
-                    //.log().body()
                     //.log().all()
                     .log().path()
                     .log().body()
@@ -168,8 +174,11 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsPostResponse.statusCode() != 200) {
-                Log4Test.error(baseURI + basePath + wsPath + " status not 200. Response is :");
+            if (wsPostResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsPostResponse.prettyPrint();
+            } else if (wsPostResponse.statusCode() != 200) {
+                Log4Test.error(baseURI + basePath + wsPath + " status not 200! Response is :");
                 wsPostResponse.prettyPrint();
                 fail();
             }
@@ -198,7 +207,6 @@ public class CommonTask extends TestBase {
                     .cookies(cookies)
                     //.body(wsPostRequestBody)
                     .multiPart(fileFormKEY, new File(filePath), mimeTYPE)
-                    //.log().body()
                     //.log().all()
                     .log().path()
                     //.log().body()
@@ -213,7 +221,10 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsPostResponse.statusCode() != 200) {
+            if (wsPostResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsPostResponse.prettyPrint();
+            } else if (wsPostResponse.statusCode() != 200) {
                 Log4Test.error(baseURI + basePath + wsPath + " status not 200. Response is :");
                 wsPostResponse.prettyPrint();
                 fail();
@@ -244,7 +255,6 @@ public class CommonTask extends TestBase {
                     .cookies(cookies)
                     .multiPart(bodyFormKEY, wsPostRequestBody)
                     .multiPart(fileFormKEY, new File(filePath), mimeTYPE)
-                    //.log().body()
                     //.log().all()
                     .log().path()
                     //.log().body()
@@ -259,7 +269,10 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsPostResponse.statusCode() != 200) {
+            if (wsPostResponse.statusCode() == 400) {
+                Log4Test.error(baseURI + basePath + wsPath + " status is 400! Response is :");
+                wsPostResponse.prettyPrint();
+            } else if (wsPostResponse.statusCode() != 200) {
                 Log4Test.error(baseURI + basePath + wsPath + " status not 200. Response is :");
                 wsPostResponse.prettyPrint();
                 fail();
@@ -287,7 +300,6 @@ public class CommonTask extends TestBase {
                     .urlEncodingEnabled(false)
                     .header("Content-Type", contentType)
                     .body(wsPostNoAuthRequestBody)
-                    //.log().body()
                     //.log().all()
                     .log().path()
                     .log().body()
@@ -302,7 +314,7 @@ public class CommonTask extends TestBase {
                     //.log().all()
                     .extract().response();
 
-            if (wsPostNoAuthRequestBody.containsValue(loginUsername + "1") && wsPostNoAuthResponse.statusCode() == 401) {
+            if (wsPostNoAuthRequestBody.containsValue(LOGIN_USERNAME + "1") && wsPostNoAuthResponse.statusCode() == 401) {
                 Log4Test.info("Wrong Username Test");
                 wsPostNoAuthResponse.prettyPrint();
             } else if (wsPostNoAuthResponse.statusCode() != 200) {
@@ -349,7 +361,7 @@ public class CommonTask extends TestBase {
                 Assert.assertNotNull(wsResponse.path(elementListPath1 + i + elementListPath2));
             }
 
-            System.out.println(newline);
+            System.out.println(NEW_LINE);
 
         } catch (Exception responseListAssertException) {
             Log4Test.error("responseListAssert error at: " + message + ", assertion test for list element ");
@@ -372,7 +384,7 @@ public class CommonTask extends TestBase {
                 Log4Test.error(wsName + ", value for list element " + i + " is: " + wsResponse.path(elementListPath1 + i + elementListPath2));
             }
 
-            System.out.println(newline);
+            System.out.println(NEW_LINE);
 
         } catch (Exception responseListPrintValuesException) {
             Log4Test.error("responseListPrintValues error at: " + wsName + ", value for list element " + i + " is: " + wsResponse.path(elementListPath1 + i + elementListPath2));
@@ -398,7 +410,7 @@ public class CommonTask extends TestBase {
                 // System.out.println(elementListPath1 + i + elementListPath2);
             }
 
-            //System.out.println(newline);
+            //System.out.println(NEW_LINE);
 
         } catch (Exception responseListValueSimpleException) {
             Log4Test.error("responseListValueSimple error at: " + elementListPath1 + i + elementListPath2);
@@ -432,15 +444,30 @@ public class CommonTask extends TestBase {
     }
 
     /**
-     * This method is used to assert the existence of an json key
+     * This method is used to assert the existence of an json key ina response
      */
     public static void assertJsonKeyExistence(Response wsResponse, String wsResponsePath) {
         try {
             assertThat(wsResponse.body().asString(), hasJsonPath(wsResponsePath));
         } catch (Exception assertJsonKeyExistenceException) {
-            Log4Test.error("Path: " + wsResponsePath + " -> DOES NOT EXIST!" + newline);
+            Log4Test.error("Path: " + wsResponsePath + " -> DOES NOT EXIST!" + NEW_LINE);
             Log4Test.error("assertJsonKeyExistence error at: " + wsResponsePath);
             throw assertJsonKeyExistenceException;
+        }
+    }
+
+    /**
+     * This method is used to assert the existence of an json key useing JsonPath
+     */
+    public static void assertJsonKeyExistenceForString(String json, String jsonPath) {
+        try {
+            if (!Objects.equals(jsonPath, "skipThisAssert")) {
+                assertThat(json, hasJsonPath(jsonPath));
+            }
+        } catch (Exception assertJsonKeyExistenceForStringException) {
+            Log4Test.error("Path: " + jsonPath + " -> DOES NOT EXIST!" + NEW_LINE);
+            Log4Test.error("assertJsonKeyExistenceForString error at: " + jsonPath);
+            throw assertJsonKeyExistenceForStringException;
         }
     }
 
@@ -453,13 +480,34 @@ public class CommonTask extends TestBase {
                 return false;
             }
 
-            Log4Test.error("Path: " + wsResponsePath + " -> is null!" + newline);
+            Log4Test.error("Path: " + wsResponsePath + " -> is null!" + NEW_LINE);
             return true;
 
         } catch (Exception assertNotNullException) {
             Log4Test.error("assertNotNull error at: " + wsResponsePath);
             throw assertNotNullException;
         }
+    }
+
+    /**
+     * This method is used to compare a string to a string
+     */
+
+    public static boolean assertEqualsStringToString(String firstValue, String compareVar) {
+        try {
+            if (!Objects.equals(compareVar, "skipThisAssert")) {
+                if (Objects.equals(firstValue, compareVar)) {
+                    return true;
+                }
+                Log4Test.error("First value: " + firstValue + " != compare value:" + compareVar);
+                return false;
+            }
+            return true;
+        } catch (Exception assertEqualsPathToStringException) {
+            Log4Test.error("assertEqualsPathToString error at: " + firstValue);
+            throw assertEqualsPathToStringException;
+        }
+
     }
 
     /**
@@ -472,14 +520,13 @@ public class CommonTask extends TestBase {
 
                 return true;
             }
-            Log4Test.error("Path: " + wsResponsePath + " != " + compareVar + newline + "Actual: " + wsResponse.path(wsResponsePath).toString() + " =! " + compareVar);
+            Log4Test.error("Path: " + wsResponsePath + " != " + compareVar + NEW_LINE + "Actual: " + wsResponse.path(wsResponsePath).toString() + " =! " + compareVar);
             return false;
 
         } catch (Exception assertEqualsPathToStringException) {
             Log4Test.error("assertEqualsPathToString error at: " + wsResponsePath);
             throw assertEqualsPathToStringException;
         }
-
     }
 
     /**
@@ -491,7 +538,7 @@ public class CommonTask extends TestBase {
             if (Objects.equals(wsResponse.path(wsResponsePath).toString(), wsResponse.path(compareVar).toString())) {
                 return true;
             }
-            Log4Test.error("Path: " + wsResponsePath + " != " + compareVar + newline + "Actual: " + wsResponse.path(wsResponsePath).toString() + " =! " + compareVar);
+            Log4Test.error("Path: " + wsResponsePath + " != " + compareVar + NEW_LINE + "Actual: " + wsResponse.path(wsResponsePath).toString() + " =! " + compareVar);
             return false;
 
         } catch (Exception assertEqualsPathToPathException) {
@@ -548,29 +595,56 @@ public class CommonTask extends TestBase {
         String status;
         Log4Test.info("Checking document status");
         try {
-            for (int i = 0; i < documentRetryTimes; i++) {
+            for (int i = 0; i < DOCUMENT_RETRY_TIMES; i++) {
                 Response response = wsGET(wsPath, cookies);
                 status = response.path(statusPath);
-                Log4Test.info("Document id status check try: " + (i + 1) + " out of: " + documentRetryTimes);
+                Log4Test.info("Document id status check try: " + (i + 1) + " out of: " + DOCUMENT_RETRY_TIMES);
                 if (!status.equals("COMPLETED")) {
                     Log4Test.info("Document id: " + documentID + " status still not completed. Status is: " + response.path(statusPath) + ". Wait some more");
                     TimeUnit.SECONDS.sleep(1);
-                    if (i == (documentRetryTimes - 1)) {
+                    if (i == (DOCUMENT_RETRY_TIMES - 1)) {
                         Log4Test.info("Document id: " + documentID + " status check ended.");
-                        if (status.equals("UNAVAILABLE")){
+                        if (status.equals("UNAVAILABLE")) {
                             response.prettyPrint();
                             fail();
                         }
                     }
                 } else {
                     Log4Test.info("Document id: " + documentID + " status check ended.");
-                    i = documentRetryTimes;
+                    i = DOCUMENT_RETRY_TIMES;
                 }
             }
         } catch (Exception documentStatusCheckCounterException) {
             Log4Test.error("documentStatusCheckCounter error");
             throw documentStatusCheckCounterException;
         }
+    }
+
+    /**
+     * This method is used to extract string from JsonPath object
+     */
+    public static String getStringFromJsonPath(JsonPath jsonPath, String jsonStringPath) {
+        try {
+            jsonPath.getString(jsonStringPath);
+        } catch (Exception e) {
+            Log4Test.error("Path: " + jsonStringPath + " not found in: " + JsonFormatter.prettyPrint(jsonPath.getString("")));
+            throw e;
+        }
+        return jsonPath.getString(jsonStringPath);
+    }
+
+
+    /**
+     * This method is used to extract string from Map list object
+     */
+    public static String getStringFromMapList(Map map, String mapIndex) {
+        try {
+            map.get(mapIndex);
+        } catch (Exception e) {
+            Log4Test.error("Map index: " + mapIndex + " not found in");
+            throw e;
+        }
+        return String.valueOf(map.get(mapIndex));
     }
 }
 

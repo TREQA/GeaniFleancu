@@ -21,9 +21,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementCredit"})
     public void accountStatement_1_DownloadActivityReport_CreditWithFieldID_OnRequest() throws Exception {
         //get response
-        accountStatementResponseTest.accountStatementDownloadActivityReport_CreditWithFieldID(accountStatementCreditDownloadWSpath, accountStatement_accountId_credit, accountStatement_field_credit);
+        accountStatementResponseTest.accountStatementDownloadActivityReport_CreditWithFieldID(ACCOUNT_STATEMENT_CREDIT_DOWNLOAD_WS_PATH, ACCOUNT_STATEMENT_ACCOUNT_ID_CREDIT, ACCOUNT_STATEMENT_FILE_ID_CREDIT);
         //set download path and file name
-        String downloadPathAndFileName_Credit = "WS_Downloads/accountStatement_1_DownloadActivityReport_CreditWithFieldID_OnRequest_" + accountStatement_accountId_credit + "_" + accountStatement_field_credit + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Credit = "WS_Downloads/accountStatement_1_DownloadActivityReport_CreditWithFieldID_OnRequest_" + ACCOUNT_STATEMENT_ACCOUNT_ID_CREDIT + "_" + ACCOUNT_STATEMENT_FILE_ID_CREDIT + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Credit);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Credit);
@@ -35,9 +35,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementCredit"})
     public void accountStatement_2_DownloadActivityReport_CreditWithoutFieldID_LastStatement() throws Exception {
         //get response
-        accountStatementResponseTest.accountStatementDownloadActivityReport_CreditWithoutFieldID(accountStatementCreditDownloadWSpath, accountStatement_accountId_credit);
+        accountStatementResponseTest.accountStatementDownloadActivityReport_CreditWithoutFieldID(ACCOUNT_STATEMENT_CREDIT_DOWNLOAD_WS_PATH, ACCOUNT_STATEMENT_ACCOUNT_ID_CREDIT);
         //set download path and file name
-        String downloadPathAndFileName_Credit = "WS_Downloads/accountStatement_2_DownloadActivityReport_CreditWithoutFieldID_LastStatement_" + accountStatement_accountId_credit + "_" + accountStatement_field_credit + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Credit = "WS_Downloads/accountStatement_2_DownloadActivityReport_CreditWithoutFieldID_LastStatement_" + ACCOUNT_STATEMENT_ACCOUNT_ID_CREDIT + "_" + ACCOUNT_STATEMENT_FILE_ID_CREDIT + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Credit);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Credit);
@@ -49,9 +49,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementDebit"})
     public void accountStatement_3_DownloadDebitActivityReport_LastStatement() throws Exception {
         //get response
-        accountStatementResponseTest.accountStatementDownloadActivityReport_DebiLastStatement(accountStatementDebitDownloadWSpath, accountStatement_accountId_debit, accountStatement_accountType_debit, "PDF");
+        accountStatementResponseTest.accountStatementDownloadActivityReport_DebiLastStatement(ACCOUNT_STATEMENT_DEBIT_DOWNLOAD_WS_PATH, ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT, ACCOUNT_STATEMENT_ACCOUNT_TYPE_DEBIT, "PDF");
         //set download path and file name
-        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_3_DownloadDebitActivityReport_LastStatement_" + accountStatement_accountId_debit + "_" + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_3_DownloadDebitActivityReport_LastStatement_" + ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT + "_" + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Debit);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Debit);
@@ -63,9 +63,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementDebit"})
     public void accountStatement_4_DownloadDebitActivityReport() throws Exception {
         //get response
-        accountStatementResponseTest.accountStatementDownloadActivityReport_DebitWithoutOnRequestParam(accountStatementDebitDownloadWSpath, accountStatement_accountId_debit, accountStatement_accountType_debit, accountStatement_startDate_debit, accountStatement_endDate_debit, "PDF");
+        accountStatementResponseTest.accountStatementDownloadActivityReport_DebitWithoutOnRequestParam(ACCOUNT_STATEMENT_DEBIT_DOWNLOAD_WS_PATH, ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT, ACCOUNT_STATEMENT_ACCOUNT_TYPE_DEBIT, ACCOUNT_STATEMENT_START_DATE_DEBIT, ACCOUNT_STATEMENT_END_DATE_DEBIT, "PDF");
         //set download path and file name
-        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_4_DownloadDebitActivityReport_" + accountStatement_accountId_debit + "_" + accountStatement_startDate_debit + "_" + accountStatement_endDate_debit + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_4_DownloadDebitActivityReport_" + ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT + "_" + ACCOUNT_STATEMENT_START_DATE_DEBIT + "_" + ACCOUNT_STATEMENT_END_DATE_DEBIT + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Debit);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Debit);
@@ -77,9 +77,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementDebit"})
     public void accountStatement_5_DownloadDebitActivityReport_OnRequestTrue() throws Exception {
         //get response
-        accountStatementResponseTest.accountStatementDownloadActivityReport_DebitWithOnRequestParam(accountStatementDebitDownloadWSpath, accountStatement_accountId_debit, accountStatement_accountType_debit, accountStatement_startDate_debit, accountStatement_endDate_debit, "PDF", true);
+        accountStatementResponseTest.accountStatementDownloadActivityReport_DebitWithOnRequestParam(ACCOUNT_STATEMENT_DEBIT_DOWNLOAD_WS_PATH, ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT, ACCOUNT_STATEMENT_ACCOUNT_TYPE_DEBIT, ACCOUNT_STATEMENT_START_DATE_DEBIT, ACCOUNT_STATEMENT_END_DATE_DEBIT, "PDF", true);
         //set download path and file name
-        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_5_DownloadDebitActivityReport_OnRequestTrue_" + accountStatement_accountId_debit + "_" + accountStatement_startDate_debit + "_" + accountStatement_endDate_debit + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Debit = "WS_Downloads/accountStatement_5_DownloadDebitActivityReport_OnRequestTrue_" + ACCOUNT_STATEMENT_ACCOUNT_ID_DEBIT + "_" + ACCOUNT_STATEMENT_START_DATE_DEBIT + "_" + ACCOUNT_STATEMENT_END_DATE_DEBIT + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Debit);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Debit);
@@ -92,9 +92,9 @@ public class AccountStatement_Tests extends TestBase {
     @Test(groups = {"all", "accountStatement", "accountStatementLoan"})
     public void accountStatement_6_LoanGraphicDownload() throws Exception {
         //get response
-        accountStatementResponseTest.loanGraphicFileStatusAndDownload(accountStatementLoanGraphicFileDownloadWSpath, loan_documentId);
+        accountStatementResponseTest.loanGraphicFileStatusAndDownload(ACCOUNT_STATEMENT_LOAN_GRAPHIC_FILE_DOWNLOAD_WS_PATH, LOAN_DOCUMENT_ID);
         //set download path and file name
-        String downloadPathAndFileName_Loan = "WS_Downloads/accountStatement_6_LoanGraphicDownload_" + accountStatement_accountId_debit + "_" + accountStatement_startDate_debit + "_" + accountStatement_endDate_debit + "_" + timeStamp + ".pdf";
+        String downloadPathAndFileName_Loan = "WS_Downloads/accountStatement_6_LoanGraphicDownload_" + LOAN_ACCOUNT_ID + "_" + LOAN_DOCUMENT_ID + "_" + TIME_STAMP + ".pdf";
         //download file
         downloadFileFromWS(accountStatementResponse, downloadPathAndFileName_Loan);
         Log4Test.info("Document downloaded with name: " + downloadPathAndFileName_Loan);

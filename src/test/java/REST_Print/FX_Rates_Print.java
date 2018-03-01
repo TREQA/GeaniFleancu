@@ -33,22 +33,22 @@ public class FX_Rates_Print extends TestBase {
     public void fxRates_2_currencyPrint(String currencyNrForTestList, String currencyNameForTestList) {
         Log4Test.info("Starting printing for currency: " + currencyNameForTestList);
         //Print information
-        Log4Test.info(newline +
-                "Currency " + currencyNameForTestList + newline +
-                "brRate: " + fxRatesListResponse.path(currencyNrForTestList + ".multiplier") + newline +
-                "nbrRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.nbrRate") + newline +
-                "buyingRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.buyingRate") + newline +
-                "sellingRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.sellingRate") + newline +
-                "History: " + newline +
-                "   date1: " + fxRatesListResponse.path(currencyNrForTestList + ".history[0].date") + newline +
-                "   nbrRate1: " + fxRatesListResponse.path(currencyNrForTestList + ".history[0].nbrRate") + newline +
-                "   date2: " + fxRatesListResponse.path(currencyNrForTestList + ".history[1].date") + newline +
-                "   nbrRate2: " + fxRatesListResponse.path(currencyNrForTestList + ".history[1].nbrRate") + newline +
-                "   date3: " + fxRatesListResponse.path(currencyNrForTestList + ".history[2].date") + newline +
-                "   nbrRate3: " + fxRatesListResponse.path(currencyNrForTestList + ".history[2].nbrRate") + newline +
-                "   date4: " + fxRatesListResponse.path(currencyNrForTestList + ".history[3].date") + newline +
-                "   nbrRate4: " + fxRatesListResponse.path(currencyNrForTestList + ".history[3].nbrRate") + newline +
-                "   date5: " + fxRatesListResponse.path(currencyNrForTestList + ".history[4].date") + newline +
+        Log4Test.info(NEW_LINE +
+                "Currency " + currencyNameForTestList + NEW_LINE +
+                "brRate: " + fxRatesListResponse.path(currencyNrForTestList + ".multiplier") + NEW_LINE +
+                "nbrRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.nbrRate") + NEW_LINE +
+                "buyingRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.buyingRate") + NEW_LINE +
+                "sellingRate: " + fxRatesListResponse.path(currencyNrForTestList + ".current.sellingRate") + NEW_LINE +
+                "History: " + NEW_LINE +
+                "   date1: " + fxRatesListResponse.path(currencyNrForTestList + ".history[0].date") + NEW_LINE +
+                "   nbrRate1: " + fxRatesListResponse.path(currencyNrForTestList + ".history[0].nbrRate") + NEW_LINE +
+                "   date2: " + fxRatesListResponse.path(currencyNrForTestList + ".history[1].date") + NEW_LINE +
+                "   nbrRate2: " + fxRatesListResponse.path(currencyNrForTestList + ".history[1].nbrRate") + NEW_LINE +
+                "   date3: " + fxRatesListResponse.path(currencyNrForTestList + ".history[2].date") + NEW_LINE +
+                "   nbrRate3: " + fxRatesListResponse.path(currencyNrForTestList + ".history[2].nbrRate") + NEW_LINE +
+                "   date4: " + fxRatesListResponse.path(currencyNrForTestList + ".history[3].date") + NEW_LINE +
+                "   nbrRate4: " + fxRatesListResponse.path(currencyNrForTestList + ".history[3].nbrRate") + NEW_LINE +
+                "   date5: " + fxRatesListResponse.path(currencyNrForTestList + ".history[4].date") + NEW_LINE +
                 "   nbrRate5: " + fxRatesListResponse.path(currencyNrForTestList + ".history[4].nbrRate"));
     }
 
@@ -61,7 +61,7 @@ public class FX_Rates_Print extends TestBase {
 
         //Call sell WS
         FX_RatesWS fxRatesSellResponseTest = new FX_RatesWS();
-        fxRatesSellResponseTest.fxRatesGETsell_buy(fxRatsSellWSpath, "RON", currencyNameForTestSellBuyRON);
+        fxRatesSellResponseTest.fxRatesGETsell_buy(FX_RATS_SELL_WS_PATH, "RON", currencyNameForTestSellBuyRON);
         //Print information
         fxRates_Print(currencyNameForTestSellBuyRON, "RON");
     }
@@ -75,7 +75,7 @@ public class FX_Rates_Print extends TestBase {
 
         //Call buy WS
         FX_RatesWS fxRatesBuyResponseTest = new FX_RatesWS();
-        fxRatesBuyResponseTest.fxRatesGETsell_buy(fxRatsBuyWSpath, "RON", currencyNameForTestSellBuyRON);
+        fxRatesBuyResponseTest.fxRatesGETsell_buy(FX_RATS_BUY_WS_PATH, "RON", currencyNameForTestSellBuyRON);
         //Print information
         fxRates_Print(currencyNameForTestSellBuyRON, "RON");
     }
@@ -89,7 +89,7 @@ public class FX_Rates_Print extends TestBase {
 
         //Call sell WS
         FX_RatesWS fxRatesSellResponseTest = new FX_RatesWS();
-        fxRatesSellResponseTest.fxRatesGETsell_buy(fxRatsSellWSpath, currency1, currency2);
+        fxRatesSellResponseTest.fxRatesGETsell_buy(FX_RATS_SELL_WS_PATH, currency1, currency2);
         //Print information
         fxRates_Print(currency1, currency2);
     }
@@ -103,7 +103,7 @@ public class FX_Rates_Print extends TestBase {
 
         //Call buy WS
         FX_RatesWS fxRatesBuyResponseTest = new FX_RatesWS();
-        fxRatesBuyResponseTest.fxRatesGETsell_buy(fxRatsBuyWSpath, currency1, currency2);
+        fxRatesBuyResponseTest.fxRatesGETsell_buy(FX_RATS_BUY_WS_PATH, currency1, currency2);
         //Print information
         fxRates_Print(currency1, currency2);
     }

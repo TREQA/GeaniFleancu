@@ -30,7 +30,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="ENV" elementType="Argument">
               <stringProp name="Argument.name">ENV</stringProp>
-              <stringProp name="Argument.value">pre</stringProp>
+              <stringProp name="Argument.value">test</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">dev or test</stringProp>
             </elementProp>
@@ -41,7 +41,7 @@
             </elementProp>
             <elementProp name="username" elementType="Argument">
               <stringProp name="Argument.name">username</stringProp>
-              <stringProp name="Argument.value">testpf01</stringProp>
+              <stringProp name="Argument.value">vn-84-vly</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="password" elementType="Argument">
@@ -4461,7 +4461,7 @@
               <hashTree/>
             </hashTree>
           </hashTree>
-          <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Quick Payments" enabled="true"/>
+          <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Quick Payments" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" ${username}  Quick Payments blance true" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -5025,6 +5025,113 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" ${username}  Get Active Payment" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${WSvar}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">services/payments-ws/v1/active-payment/list</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion Status 200" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="49586">200</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion not empty" enabled="false">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="91">[</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="false">
+              <stringProp name="cacheKey"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">import groovy.json.*
+
+def response = SampleResult.getResponseDataAsString()
+def json = new groovy.json.JsonSlurper().parseText(response)
+def paymentCount = json.count {it.containsKey(&quot;fromAccount&quot;)}
+
+def paymentsWithRepetion = json.count{it.containsKey(&quot;repetition&quot;)}
+log.info(&quot;Payments with repetion numbers: &quot; + paymentsWithRepetion)
+
+x = 0
+for (i=0; i&lt;paymentCount; i++) {
+log.info(&quot;i= &quot; + i)	
+log.info(&quot;Payment id: &quot; + json.id[i])
+log.info(&quot;Payment actionId: &quot; + json.actionId[i])
+
+if (json.repetition[i]){
+
+def y = x++
+log.info(&quot;Repetition?: &quot; + &quot;yes&quot;)
+vars.put(&quot;paymentIdWithRepetion&quot;+y, json.id[i])
+//i=paymentCount
+
+} else { log.info(&quot;Repetition?: &quot; + &quot;no&quot;) }
+}
+vars.put(&quot;paymentsWithRepetionNR&quot;, paymentsWithRepetion.toString())</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="JSR223 Assertion" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey"></stringProp>
+              <stringProp name="script">def response = SampleResult.getResponseDataAsString()
+def json = new groovy.json.JsonSlurper().parseText(response)
+def paymentCount = json.count {it.containsKey(&quot;fromAccount&quot;)}
+
+def paymentsWithRepetion = json.count{it.containsKey(&quot;repetition&quot;)}
+log.info(&quot;Payments with repetion numbers: &quot; + paymentsWithRepetion)
+
+x = 0 //base number for varible increment 
+for (i=0; i&lt;paymentCount; i++) {
+log.info(&quot;i= &quot; + i)	
+log.info(&quot;Payment id: &quot; + json.id[i])
+log.info(&quot;Payment actionId: &quot; + json.actionId[i])
+
+if (json.repetition[i]){
+
+def y = x++ //increment variable number 
+log.info(&quot;Repetition?: &quot; + &quot;yes&quot;)
+vars.put(&quot;paymentIdWithRepetion&quot; + y, json.id[i])
+//i=paymentCount //use to disable after first payment with reccureny found
+
+} else { log.info(&quot;Repetition?: &quot; + &quot;no&quot;) }
+}
+vars.put(&quot;paymentsWithRepetionNR&quot;, paymentsWithRepetion.toString())</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
           <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Payments works only with vn-84-vly" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" ${username}  Get Own Accounts eligibility" enabled="true">
@@ -5073,7 +5180,6 @@
               <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname=" ${username}  Get Active Payment" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
@@ -5083,6 +5189,7 @@
                   </elementProp>
                 </collectionProp>
               </elementProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <stringProp name="HTTPSampler.domain">${WSvar}</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>

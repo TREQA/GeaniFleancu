@@ -18,12 +18,12 @@ public class CyberReceipt_Tests extends TestBase {
     @Test(groups = {"all", "payments", "cyberReceipt", "transactions"})
     public void cyberReceipt_1_GenerateDocumentID() {
         //generate document id
-        cyberReceiptResponseTest.cyberReceipt_Generate(cyberReceiptGenerateDocumentWSpath, cyberReceiptAccId, cyberReceiptPostingDate, cyberReceiptCassId);
+        cyberReceiptResponseTest.cyberReceipt_Generate(CYBER_RECEIPT_GENERATE_DOCUMENT_WS_PATH, CYBER_RECEIPT_ACC_ID, CYBER_RECEIPT_POSTING_DATE, CYBER_RECEIPT_CASS_ID);
         //print document id
         System.out.println("Response: ");
         cyberReceiptResponse.prettyPrint();
         //extract document id
-        cyberReceiptDocumentId = cyberReceiptResponse.path("receiptDocumentId");
+        CYBER_RECEIPT_DOCUMENT_ID = cyberReceiptResponse.path("receiptDocumentId");
     }
 
     /**
@@ -32,11 +32,11 @@ public class CyberReceipt_Tests extends TestBase {
     @Test(groups = {"all", "payments", "cyberReceipt", "transactions"})
     public void cyberReceipt_2_documentIdStatus() throws InterruptedException {
         //check document id status
-        cyberReceiptResponseTest.cyberReceipt_Status_Download(cyberReceiptDocumentStatusWSpath, cyberReceiptDocumentId);
+        cyberReceiptResponseTest.cyberReceipt_Status_Download(CYBER_RECEIPT_DOCUMENT_STATUS_WS_PATH, CYBER_RECEIPT_DOCUMENT_ID);
         //print document id status
         System.out.println("Response: ");
         cyberReceiptResponse.prettyPrint();
-        Log4Test.info("Document id " + cyberReceiptDocumentId + " status is: " + cyberReceiptResponse.path("status"));
+        Log4Test.info("Document id " + CYBER_RECEIPT_DOCUMENT_ID + " status is: " + cyberReceiptResponse.path("status"));
     }
 
     /**
@@ -45,9 +45,9 @@ public class CyberReceipt_Tests extends TestBase {
     @Test(groups = {"all", "payments", "cyberReceipt", "transactions"})
     public void cyberReceipt_3_Download() throws Exception {
         //get response
-        cyberReceiptResponseTest.cyberReceipt_Status_Download(cyberReceiptDocumentDownloadWSpath, cyberReceiptDocumentId);
+        cyberReceiptResponseTest.cyberReceipt_Status_Download(CYBER_RECEIPT_DOCUMENT_DOWNLOAD_WS_PATH, CYBER_RECEIPT_DOCUMENT_ID);
         //set download path and file name
-        String cyberReceipt_dwl = "WS_Downloads/cyberReceipt_1_Download_" + cyberReceiptDocumentId + "_" + cyberReceiptCassId + "_" + timeStamp + ".pdf";
+        String cyberReceipt_dwl = "WS_Downloads/cyberReceipt_1_Download_" + CYBER_RECEIPT_ACC_ID +"_"+ CYBER_RECEIPT_DOCUMENT_ID + "_" + CYBER_RECEIPT_CASS_ID + "_" + TIME_STAMP + ".pdf";
         //download file
         //cyberReceiptResponse.prettyPrint();
         downloadFileFromWS(cyberReceiptResponse, cyberReceipt_dwl);

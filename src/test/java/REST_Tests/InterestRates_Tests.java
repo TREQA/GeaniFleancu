@@ -29,7 +29,7 @@ public class InterestRates_Tests extends TestBase {
     @Test(dataProvider = "interestRates", dataProviderClass = TestData_DataProvider.class, groups = {"all", "interestRates"})
     public void interestRates_1_mainAssertTest(String interestRateNR, String interestRateName) {
 
-        Log4Test.info("Starting Fx Rates main assert test for: " + interestRateName + newline);
+        Log4Test.info("Starting Fx Rates main assert test for: " + interestRateName + NEW_LINE);
 
         //Start assertion
         Log4Test.test("Assert that categories exist.");
@@ -46,7 +46,7 @@ public class InterestRates_Tests extends TestBase {
 
         softAssert.assertAll();
 
-        Log4Test.info("Interest Rates main assert test completed for " + interestRateName + "." + newline);
+        Log4Test.info("Interest Rates main assert test completed for " + interestRateName + "." + NEW_LINE);
 
     }
 
@@ -64,7 +64,7 @@ public class InterestRates_Tests extends TestBase {
         assertJsonKeyExistence(interestRatesListResponse, interestRateNR + ".rates");
         softAssert.assertTrue(assertEqualsPathToString(interestRatesListResponse, interestRateNR + ".name", interestRateName));
 
-        Log4Test.info(newline);
+        Log4Test.info(NEW_LINE);
         Log4Test.info("Assert rates category is not null");
 
         Log4Test.test("Assert period list size");
@@ -103,11 +103,11 @@ public class InterestRates_Tests extends TestBase {
         assertJsonKeyExistence(interestRatesListResponse, responseListValueSimpleString(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].interestRateChangeList"));
         softAssert.assertFalse(assertNotNull(interestRatesListResponse, responseListValueSimpleString(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].interestRateChangeList")), "Null on " + responseListValueSimpleString(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].interestRateChangeList"));
 
-        Log4Test.info(newline);
+        Log4Test.info(NEW_LINE);
 
         softAssert.assertAll();
 
-        Log4Test.info("Ending detail assertion for interest rate: " + interestRateName + newline);
+        Log4Test.info("Ending detail assertion for interest rate: " + interestRateName + NEW_LINE);
     }
 
     /**
@@ -131,7 +131,7 @@ public class InterestRates_Tests extends TestBase {
                         "].interestRateChangeList[0].value.value")),
                 "Period value != last interest rate value on " + responseListValueSimpleString(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].value.value"));
 
-        Log4Test.info("Ending last value test for interest rate: " + interestRateName + newline);
+        Log4Test.info("Ending last value test for interest rate: " + interestRateName + NEW_LINE);
     }
 
 
@@ -141,7 +141,7 @@ public class InterestRates_Tests extends TestBase {
     @Test(dataProvider = "interestRates", dataProviderClass = TestData_DataProvider.class, groups = {"all", "interestRates"})
     public void interestRates_4_interestRatesHistoryTest(String interestRateNR, String interestRateName) {
 
-        Log4Test.info("Starting history test for interest rate: " + interestRateName + newline);
+        Log4Test.info("Starting history test for interest rate: " + interestRateName + NEW_LINE);
 
         Log4Test.test("Assert interest rates history list size, it should be 10");
         Assert.assertEquals(responseElementListSize(interestRatesListResponse,
@@ -199,7 +199,7 @@ public class InterestRates_Tests extends TestBase {
         Assert.assertFalse(assertNotNull(interestRatesListResponse, String.valueOf(InterestRatesHistoryPeriodMap.get(3, 9))), "NULL error at: " + String.valueOf(InterestRatesHistoryPeriodMap.get(3, 9)));
         Assert.assertFalse(assertNotNull(interestRatesListResponse, String.valueOf(InterestRatesHistoryPeriodMap.get(3, 10))), "NULL error at: " + String.valueOf(InterestRatesHistoryPeriodMap.get(3, 10)));
 
-        Log4Test.info("Ending history test for interest rate: " + interestRateName + newline);
+        Log4Test.info("Ending history test for interest rate: " + interestRateName + NEW_LINE);
     }
 
     /*
@@ -208,7 +208,7 @@ public class InterestRates_Tests extends TestBase {
     /*@Test(dataProvider = "interestRates", dataProviderClass = TestData_DataProvider.class, groups = {"all", "interestRates"})
     public void interestRates_x_interestRatesHistoryTest(String interestRateNR, String interestRateName) {
 
-        Log4Test.info("Starting history test for interest rate: " + interestRateName + newline);
+        Log4Test.info("Starting history test for interest rate: " + interestRateName + NEW_LINE);
 
         Log4Test.test("Assert ea interest rates period each history content to not be null");
 
@@ -218,7 +218,7 @@ public class InterestRates_Tests extends TestBase {
         Assert.assertEquals(responseElementListSize(interestRatesListResponse,
                 responseListValueSimpleString(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].interestRateChangeList")), 10, "Interest rates " + interestRateName + " history list period " + responseListValueSimplePath(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].period.value") + " " + responseListValueSimplePath(interestRatesListResponse, interestRateNR + ".rates", interestRateNR + ".rates[", "].period.unit") + " should contain 10 elements!");
 
-        Log4Test.info("Ending history test for interest rate: " + interestRateName + newline);
+        Log4Test.info("Ending history test for interest rate: " + interestRateName + NEW_LINE);
     }*/
 }
 

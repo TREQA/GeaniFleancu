@@ -32,7 +32,7 @@ public class InterestRatesWS extends TestBase {
             int periodList = wsResponse.jsonPath().getList(interestRateNR + ".rates").size();
 
             for (int i = 0; i < periodList; i++) {
-                System.out.println(newline);
+                System.out.println(NEW_LINE);
                 interestPeriod = jsonPathStringBuilder(interestRatesListResponse, "categories.find {it.name == \"" + interestRateName + "\"}.rates[" + i + "].period.value");
                 Log4Test.info("Setting period list " + interestPeriod + " Month.");
 
@@ -82,7 +82,7 @@ public class InterestRatesWS extends TestBase {
                 responseListPrintValues(interestRatesListResponse, interestRatesHistoryPathFullPeriod, interestRatesHistoryValuePath1Period, interestRatesHistoryValuePath2Period, interestRatesHistoryListPeriod);
             }
 
-            Log4Test.info(newline);
+            Log4Test.info(NEW_LINE);
 
         } catch (Exception interestRatesHistoryTestException) {
             Log4Test.test("interestRatesHistoryTest error at:" + interestRatesHistoryListPeriod);
@@ -95,10 +95,10 @@ public class InterestRatesWS extends TestBase {
      */
     public void interestRatesGETlist() {
 
-        Log4Test.info("Environment used for Interest Rates is: " + env);
+        Log4Test.info("Environment used for Interest Rates is: " + ENV);
         try {
 
-            interestRatesListResponse = wsGETnoAuth(interestRatsListWSpath);
+            interestRatesListResponse = wsGETnoAuth(INTEREST_RATS_LIST_WS_PATH);
 
         } catch (Exception interestRatesListException) {
             Log4Test.test("interestRatesGETlist error");
@@ -134,7 +134,7 @@ public class InterestRatesWS extends TestBase {
                 Log4Test.test("Start history assertion for period " + wsResponse.path(interestRateNR + ".rates[" + x + "].period.value") + " " + wsResponse.path(interestRateNR + ".rates[" + x + "].period.unit"));
                 responseListAssert(interestRatesListResponse, interestRatesHistoryPathFullPeriod, interestRatesHistoryValuePath1Period, interestRatesHistoryValuePath2Period, interestRatesHistoryListPeriod);
             }
-            Log4Test.info(newline);
+            Log4Test.info(NEW_LINE);
 
         } catch (Exception interestRatesHistoryTestException) {
             Log4Test.test("interestRatesHistoryTest error at: " + interestRatesHistoryListPeriod);

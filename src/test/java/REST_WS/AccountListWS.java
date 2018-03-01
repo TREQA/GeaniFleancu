@@ -20,9 +20,9 @@ public class AccountListWS extends TestBase {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
 
-            Log4Test.info("Environment used for UserInfo is: " + env);
+            Log4Test.info("Environment used for UserInfo is: " + ENV);
 
-            accountListResponse = wsGET(accountListWSpath, loginWSResponse.cookies());
+            accountListResponse = wsGET(ACCOUNT_LIST_WS_PATH, loginWSResponse.cookies());
 
         } catch (Exception accountListGETException) {
             Log4Test.test("accountListGET error");

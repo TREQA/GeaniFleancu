@@ -25,9 +25,9 @@ public class CyberReceiptWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for cyber receipt is: " + env);
+            Log4Test.info("Environment used for cyber receipt is: " + ENV + " and account ID is: " + accountNo);
 
-            cyberReceiptResponse = wsPOST(appJSON, cyberReceiptBody, wsPath, loginWSResponse.cookies());
+            cyberReceiptResponse = wsPOST(APP_JSON, cyberReceiptBody, wsPath, loginWSResponse.cookies());
 
         } catch (Exception cyberReceipt_DownloadException) {
             Log4Test.test("cyberReceipt_Generate error");
@@ -43,9 +43,9 @@ public class CyberReceiptWS extends TestBase {
         try {
             LoginWS loginWSResponseForGet = new LoginWS();
             loginWSResponseForGet.loginWSResponse();
-            Log4Test.info("Environment used for cyber receipt is: " + env);
+            Log4Test.info("Environment used for cyber receipt is: " + ENV + " and account ID is: " + CYBER_RECEIPT_ACC_ID);
 
-            if (wsPath.contains(cyberReceiptDocumentStatusWSpath)) {
+            if (wsPath.contains(CYBER_RECEIPT_DOCUMENT_STATUS_WS_PATH)) {
                 documentStatusCheckCounter(wsPath + documentId, loginWSResponse.cookies(), "status", documentId);
                 cyberReceiptResponse = wsGET(wsPath + documentId, loginWSResponse.cookies());
             } else {

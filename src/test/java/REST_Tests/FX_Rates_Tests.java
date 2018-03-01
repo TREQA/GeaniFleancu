@@ -97,7 +97,7 @@ public class FX_Rates_Tests extends TestBase {
         try {
             //Call sell WS
             FX_RatesWS fxRatesSellResponseTest = new FX_RatesWS();
-            fxRatesSellResponseTest.fxRatesGETsell_buy(fxRatsSellWSpath, "RON", currencyNameForTestSellBuyRON);
+            fxRatesSellResponseTest.fxRatesGETsell_buy(FX_RATS_SELL_WS_PATH, "RON", currencyNameForTestSellBuyRON);
 
             //Start Assertion
             //existence assertions
@@ -134,7 +134,7 @@ public class FX_Rates_Tests extends TestBase {
         try {
             //Call buy WS
             FX_RatesWS fxRatesBuyResponseTest = new FX_RatesWS();
-            fxRatesBuyResponseTest.fxRatesGETsell_buy(fxRatsBuyWSpath, "RON", currencyNameForTestSellBuyRON);
+            fxRatesBuyResponseTest.fxRatesGETsell_buy(FX_RATS_BUY_WS_PATH, "RON", currencyNameForTestSellBuyRON);
             //Start Assertion
             //existence assertions
             assertJsonKeyExistence(fxRatesSellBuyResponse, "primaryCurrency");
@@ -169,7 +169,7 @@ public class FX_Rates_Tests extends TestBase {
 
         try { //Call sell WS
             FX_RatesWS fxRatesSellResponseTest = new FX_RatesWS();
-            fxRatesSellResponseTest.fxRatesGETsell_buy(fxRatsSellWSpath, currency1, currency2);
+            fxRatesSellResponseTest.fxRatesGETsell_buy(FX_RATS_SELL_WS_PATH, currency1, currency2);
             //Start Assertion
             //existence assertions
             assertJsonKeyExistence(fxRatesSellBuyResponse, "primaryCurrency");
@@ -205,7 +205,7 @@ public class FX_Rates_Tests extends TestBase {
         try {
             //Call buy WS
             FX_RatesWS fxRatesBuyResponseTest = new FX_RatesWS();
-            fxRatesBuyResponseTest.fxRatesGETsell_buy(fxRatsBuyWSpath, currency1, currency2);
+            fxRatesBuyResponseTest.fxRatesGETsell_buy(FX_RATS_BUY_WS_PATH, currency1, currency2);
             //Start Assertion
             Log4Test.test("FX Rates assert test for buy: " + currency1 + "/ " + currency2);
             //existence assertions
